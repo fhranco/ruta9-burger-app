@@ -1,0 +1,22 @@
+{
+  "name": "Ruta 9 | Super App",
+  "short_name": "Ruta 9",
+  "description": "High-end Patagonian burger experience.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D0D12",
+  "theme_color": "#D1232B",
+  "icons": [
+    {
+      "src": "https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=192",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=512",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
