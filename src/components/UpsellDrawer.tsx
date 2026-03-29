@@ -2,7 +2,7 @@
 import React from "react";
 import { useTray } from "@/store/useTray";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Plus, ChevronRight, Check } from "lucide-react";
+import { X, Plus, Check, Zap, ShoppingBag } from "lucide-react";
 import menuData from "@/data/menu.json";
 
 interface UpsellDrawerProps {
@@ -13,81 +13,107 @@ interface UpsellDrawerProps {
 
 export const UpsellDrawer = ({ isOpen, onClose, burgerName }: UpsellDrawerProps) => {
   const addItem = useTray((state) => state.addItem);
+  const items = useTray((state) => state.items);
   
-  // Suggested extras for quick upsell (top sellers)
-  const suggestions = [
-    ...menuData.extras.Quesos.slice(0, 3),
-    ...menuData.extras.Carnes.slice(0, 3),
-    ...menuData.extras.Verduras.slice(5, 6) // Palta trozada
-  ];
+  const categories = Object.keys(menuData.extras);
 
   return (
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop */}
+          {/* Backdrop with heavy blur */}
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-[110] bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 z-[110] bg-black/80 backdrop-blur-md"
           />
 
-          {/* Drawer */}
+          {/* Drawer - Higher and more robust */}
           <motion.div
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
-            transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="fixed bottom-0 left-0 right-0 z-[120] bg-asphalt/95 backdrop-blur-3xl border-t border-white/10 rounded-t-[3rem] p-8 pb-12 sm:pb-8 flex flex-col gap-6 shadow-[0_-25px_50px_rgba(0,0,0,0.8)]"
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed bottom-0 left-0 right-0 z-[120] bg-asphalt border-t-2 border-primary/30 rounded-t-[3.5rem] h-[85vh] flex flex-col shadow-[0_-30px_60px_rgba(0,0,0,0.9)] overflow-hidden"
           >
-            {/* Header */}
-            <div className="flex items-center justify-between">
-                <div>
-                   <h3 className="text-[10px] uppercase font-black tracking-[0.3em] text-primary mb-1">¡BUENA ELECCIÓN!</h3>
-                   <h2 className="text-xl font-black italic text-white tracking-tighter uppercase whitespace-nowrap overflow-hidden text-ellipsis max-w-[250px]">
-                      ¿POTENCIÁS TU {burgerName}?
+            {/* 1. Header Area: Branding & Exit */}
+            <div className="px-8 pt-10 pb-6 flex items-start justify-between bg-gradient-to-b from-black/40 to-transparent">
+                <div className="flex flex-col gap-1">
+                   <div className="flex items-center gap-3">
+                      <Zap className="w-4 h-4 text-primary animate-pulse" />
+                      <h3 className="text-[10px] uppercase font-black tracking-[0.4em] text-primary">POTENCIADOR DE RUTA</h3>
+                   </div>
+                   <h2 className="text-2xl md:text-3xl font-black italic text-white tracking-tighter uppercase leading-tight mt-1">
+                      ¿SUMAMOS EXTRAS <br /><span className="text-primary not-italic">A TU {burgerName}?</span>
                    </h2>
                 </div>
                 <button 
                   onClick={onClose}
-                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/40"
+                  className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-primary transition-all shadow-xl"
                 >
-                    <X className="w-5 h-5" />
+                    <X className="w-6 h-6" />
                 </button>
             </div>
 
-            {/* Suggestions Horizontal Scroller / Grid */}
-            <div className="flex overflow-x-auto gap-3 pb-4 scrollbar-hide -mx-8 px-8">
-                {suggestions.map((extra: any) => (
-                    <button
-                        key={extra.name}
-                        onClick={() => addItem({ ...extra, type: 'extra', id: `EX-${extra.name}` })}
-                        className="flex-shrink-0 bg-white/5 border border-white/5 rounded-3xl p-5 w-40 flex flex-col gap-2 hover:bg-primary/5 hover:border-primary/30 transition-all active:scale-95 text-left group"
-                    >
-                        <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-1">
-                            <Plus className="w-4 h-4" />
+            {/* 2. Scrollable Content: All Categories */}
+            <div className="flex-grow overflow-y-auto px-8 pb-12 scrollbar-hide space-y-10">
+                {categories.map((cat) => (
+                    <div key={cat} className="space-y-4">
+                        <div className="flex items-center justify-between border-b border-white/5 pb-2">
+                           <h4 className="text-sm font-black italic text-white/50 uppercase tracking-widest flex items-center gap-2">
+                               {cat}
+                           </h4>
+                           <span className="text-[9px] font-bold text-white/20 uppercase tracking-[0.2em]">{ (menuData.extras as any)[cat].length } opciones</span>
                         </div>
-                        <span className="text-xs font-bold text-white leading-tight group-hover:text-primary transition-colors">{extra.name}</span>
-                        <span className="text-[10px] font-black text-white/30">
-                            +{extra.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}
-                        </span>
-                    </button>
+                        
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            {(menuData.extras as any)[cat].map((extra: any) => {
+                                const isAdded = items.find(i => i.product.name === extra.name);
+                                return (
+                                    <button
+                                        key={extra.name}
+                                        onClick={() => {
+                                           addItem({ ...extra, type: 'extra', id: `EX-${extra.name}` });
+                                        }}
+                                        className={`relative bg-white/5 border ${isAdded ? 'border-primary bg-primary/10' : 'border-white/5'} rounded-2xl p-4 flex flex-col items-start gap-1 transition-all text-left group active:scale-95`}
+                                    >
+                                        <div className={`absolute top-2 right-2 w-5 h-5 rounded-full flex items-center justify-center transition-all ${isAdded ? 'bg-primary text-white scale-110' : 'bg-white/5 text-white/20'}`}>
+                                            {isAdded ? <Check className="w-3 h-3" /> : <Plus className="w-3 h-3" />}
+                                        </div>
+                                        <span className={`text-[11px] font-bold leading-tight pr-4 ${isAdded ? 'text-white' : 'text-white/80'} transition-colors`}>
+                                            {extra.name}
+                                        </span>
+                                        <span className={`text-[9px] font-black ${isAdded ? 'text-primary' : 'text-white/30'}`}>
+                                            + {extra.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}
+                                        </span>
+                                        {isAdded && (
+                                           <div className="absolute -bottom-1 -right-1 bg-primary text-[8px] font-black px-2 py-0.5 rounded-full text-white shadow-lg">
+                                               x{isAdded.quantity}
+                                           </div>
+                                        )}
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    </div>
                 ))}
             </div>
 
-            {/* Finalize Action */}
-            <button 
-                onClick={onClose}
-                className="w-full bg-primary text-white font-black h-16 rounded-3xl flex items-center justify-center gap-3 shadow-[0_15px_30px_rgba(209,35,43,0.3)] hover:scale-[1.02] active:scale-95 transition-all text-sm uppercase tracking-widest"
-            >
-                LISTO, ASÍ ESTÁ PERFECTA <Check className="w-4 h-4" />
-            </button>
-
-            <p className="text-center text-[9px] font-bold text-white/20 uppercase tracking-[0.3em]">
-               — PODÉS REVISAR TODA TU RUTA ABAJO —
-            </p>
+            {/* 3. Action Footer: Finalize Order */}
+            <div className="px-8 py-8 bg-black/60 border-t border-white/5 shadow-[0_-20px_40px_rgba(0,0,0,0.5)]">
+                <button 
+                    onClick={onClose}
+                    className="w-full bg-primary text-white font-black h-18 py-5 rounded-3xl flex items-center justify-center gap-4 shadow-[0_20px_40px_rgba(209,35,43,0.4)] hover:scale-[1.02] active:scale-95 transition-all text-base uppercase tracking-widest group"
+                >
+                    <ShoppingBag className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                    LISTO, CONTINUAR NAVEGANDO <Check className="w-5 h-5" />
+                </button>
+                <p className="text-center text-[10px] font-bold text-white/20 uppercase tracking-[0.4em] mt-6">
+                   EXPLORANDO LA RUTA 9 • CHILE
+                </p>
+            </div>
           </motion.div>
         </>
       )}
