@@ -82,14 +82,14 @@ export const UpsellDrawer = ({ isOpen, onClose, burgerName }: UpsellDrawerProps)
                                         <div className={`absolute top-2 right-2 w-5 h-5 rounded-full flex items-center justify-center transition-all ${isAdded ? 'bg-primary text-white scale-110' : 'bg-white/5 text-white/20'}`}>
                                             {isAdded ? <Check className="w-3 h-3" /> : <Plus className="w-3 h-3" />}
                                         </div>
-                                        <span className={`text-[11px] font-bold leading-tight pr-4 ${isAdded ? 'text-white' : 'text-white/80'} transition-colors`}>
+                                        <span className={`text-[12px] font-bold leading-tight pr-4 ${isAdded ? 'text-white' : 'text-white/80'} transition-colors mb-1`}>
                                             {extra.name}
                                         </span>
-                                        <span className={`text-[9px] font-black ${isAdded ? 'text-primary' : 'text-white/30'}`}>
+                                        <span className={`text-sm font-black tracking-tighter ${isAdded ? 'text-white' : 'text-primary'}`}>
                                             + {extra.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}
                                         </span>
                                         {isAdded && (
-                                           <div className="absolute -bottom-1 -right-1 bg-primary text-[8px] font-black px-2 py-0.5 rounded-full text-white shadow-lg">
+                                           <div className="absolute -bottom-1 -right-1 bg-primary text-[9px] font-black px-2 py-0.5 rounded-full text-white shadow-lg">
                                                x{isAdded.quantity}
                                            </div>
                                         )}
@@ -111,7 +111,7 @@ export const UpsellDrawer = ({ isOpen, onClose, burgerName }: UpsellDrawerProps)
                     LISTO, CONTINUAR NAVEGANDO <Check className="w-5 h-5" />
                 </button>
                 <p className="text-center text-[10px] font-bold text-white/20 uppercase tracking-[0.4em] mt-6">
-                   EXPLORANDO LA RUTA 9 • CHILE
+                   PRECIOS EN PESOS CHILENOS • RUTA 9
                 </p>
             </div>
           </motion.div>
