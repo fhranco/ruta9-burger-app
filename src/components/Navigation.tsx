@@ -1,15 +1,16 @@
 "use client";
 import React from "react";
 import { Gauge } from "./Gauge";
-import { User, Home, ShoppingBag, List, Coffee, Beef, Cookie, UtensilsCrossed } from "lucide-react";
+import { User, Home, ShoppingBag, List, Coffee, Beef, Cookie, Hammer } from "lucide-react";
 import { useTray } from "@/store/useTray";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const SECTIONS = [
-  { id: "burgers", icon: <Beef className="w-4 h-4" />, label: "Burgers" },
-  { id: "snacks", icon: <UtensilsCrossed className="w-4 h-4" />, label: "Snacks" },
-  { id: "postres", icon: <Cookie className="w-4 h-4" />, label: "Postres" },
-  { id: "drinks", icon: <Coffee className="w-4 h-4" />, label: "Bebidas" },
+  { id: "factory", icon: <Hammer className="w-5 h-5" />, label: "Factory" },
+  { id: "burgers", icon: <Beef className="w-5 h-5" />, label: "Menu" },
+  { id: "snacks", icon: <List className="w-5 h-5" />, label: "Snacks" },
+  { id: "postres", icon: <Cookie className="w-5 h-5" />, label: "Postres" },
+  { id: "drinks", icon: <Coffee className="w-5 h-5" />, label: "Drinks" },
 ] as const;
 
 export const Navigation = () => {
@@ -29,7 +30,7 @@ export const Navigation = () => {
                 <img 
                   src="/images/ui/logo.png" 
                   alt="Ruta 9 Logo" 
-                  className="w-full h-full object-contain filter drop-shadow-2xl group-hover:scale-110 transition-transform duration-500" 
+                  className="w-full h-full object-contain filter drop-shadow-2xl group-hover:scale-110 transition-transform duration-500 rounded-full" 
                 />
              </div>
              <div className="flex flex-col h-full -ml-1">
@@ -43,52 +44,63 @@ export const Navigation = () => {
         </div>
       </header>
 
-      {/* Bottom Floating Nav - THE COMPASS (v20.0) */}
-      <nav className="fixed bottom-0 left-0 right-0 z-[100] p-6 pb-6 pointer-events-none flex justify-center">
-        <div className="bg-black/60 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-1.5 flex items-center gap-1 shadow-[0_25px_60px_rgba(0,0,0,0.9)] pointer-events-auto relative overflow-hidden">
+      {/* Bottom Floating Nav - THE GIANT COMPASS (v23.0) */}
+      <nav className="fixed bottom-0 left-0 right-0 z-[100] p-4 pb-6 pointer-events-none flex justify-center">
+        <div className="bg-black/80 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-2 flex items-center gap-1 shadow-[0_25px_60px_rgba(0,0,0,1)] pointer-events-auto relative overflow-visible">
            
            {/* Section Selector */}
-           <div className="flex items-center gap-0.5">
+           <div className="flex items-center gap-1">
              {SECTIONS.map((section) => {
                 const isActive = activeSection === section.id;
+                const isFactory = section.id === "factory";
+
                 return (
                    <button 
                      key={section.id}
-                     onClick={() => setActiveSection(section.id)}
-                     className={`relative px-4 py-3 rounded-[1.5rem] flex flex-col items-center gap-1 transition-all active:scale-90 ${isActive ? 'text-white' : 'text-white/20 hover:text-white/40'}`}
+                     onClick={() => setActiveSection(section.id as any)}
+                     className={`relative px-4 py-3 rounded-3xl flex flex-col items-center gap-1 transition-all active:scale-90 ${isActive ? 'text-white' : 'text-white/20 hover:text-white/40'}`}
                    >
-                      <div className={`transition-transform duration-300 ${isActive ? 'scale-110' : 'scale-90'}`}>
+                      <div className={`transition-transform duration-300 ${isActive ? 'scale-125' : 'scale-100'}`}>
                         {section.icon}
                       </div>
-                      <span className={`text-[7px] font-black uppercase tracking-[0.1em] transition-opacity ${isActive ? 'opacity-100' : 'opacity-0'}`}>
-                         {section.label}
-                      </span>
+                      
                       {isActive && (
                          <motion.div 
                            layoutId="nav-active-pill" 
-                           className="absolute inset-0 bg-primary/20 border border-primary/30 rounded-[1.5rem] -z-10 shadow-[0_10px_20px_rgba(209,35,43,0.3)]" 
+                           className={`absolute inset-0 border rounded-3xl -z-10 shadow-[0_10px_20px_rgba(0,0,0,0.5)] ${isFactory ? 'bg-primary/20 border-primary/40' : 'bg-white/10 border-white/20'}`} 
                          />
                       )}
+
+                      <span className={`text-[8px] font-black uppercase tracking-[0.1em] pointer-events-none transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0 h-0 overflow-hidden'}`}>
+                         {section.label}
+                      </span>
                    </button>
                 );
              })}
            </div>
 
            {/* Divider */}
-           <div className="w-[1px] h-8 bg-white/5 mx-1" />
+           <div className="w-[1.5px] h-10 bg-white/5 mx-2" />
 
            {/* Tray Trigger */}
-           <button 
+           <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={toggleTray}
-              className={`relative w-14 h-14 rounded-full flex items-center justify-center transition-all group active:scale-95 ${totalItems > 0 ? 'bg-primary text-white shadow-[0_15px_30px_rgba(209,35,43,0.5)]' : 'bg-white/5 text-white/40'}`}
+              className={`relative w-16 h-16 rounded-full flex items-center justify-center transition-all group ${totalItems > 0 ? 'bg-primary text-white shadow-[0_15px_45px_rgba(209,35,43,0.6)] animate-pulse-red' : 'bg-white/5 text-white/40 border border-white/10'}`}
            >
-              <ShoppingBag className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-              {totalItems > 0 && (
-                <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-white text-[9px] font-black text-primary flex items-center justify-center animate-pulse border border-black/10">
-                   {totalItems}
-                </div>
-              )}
-           </button>
+              <ShoppingBag className="w-6 h-6 group-hover:rotate-12 transition-transform" />
+              <AnimatePresence>
+                {totalItems > 0 && (
+                  <motion.div 
+                    initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }}
+                    className="absolute top-1 right-1 w-6 h-6 rounded-full bg-white text-[10px] font-black text-primary flex items-center justify-center border-2 border-primary shadow-xl"
+                  >
+                     {totalItems}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+           </motion.button>
         </div>
       </nav>
     </>

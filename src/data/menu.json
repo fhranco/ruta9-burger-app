@@ -1,6 +1,13 @@
 {
+  "factory": {
+    "id": "BF",
+    "name": "Burger Factory",
+    "description": "Tu creación, tus reglas. Comenzamos con una base perfecta y tú eliges el resto.",
+    "basePrice": 6700,
+    "includes": "Burger + Pan Brioche + Base de Salsa",
+    "image": "/images/products/BF.webp"
+  },
   "burgers": [
-    { "id": "BF", "name": "Burger Factory", "ingredients": "Base + Salsa + Extras a elección", "price": 6700 },
     { "id": "B1", "name": "Burger básica", "ingredients": "Burger + queso gouda o cheddar", "price": 8200 },
     { "id": "B2", "name": "Burger completa", "ingredients": "Burger + queso gouda + lechuga + tomate + cebolla morada + huevo frito", "price": 9600 },
     { "id": "B3", "name": "Clásica BBQ", "ingredients": "Burger + queso cheddar + tocino + huevo frito + pepinillos + salsa BBQ", "price": 10900 },
@@ -23,42 +30,39 @@
     { "id": "B20", "name": "Los tres chanchitos", "ingredients": "Burger + queso gouda + tocino + pulled pork + longaniza + salsa BBQ", "price": 12500 },
     { "id": "B21", "name": "La limeña", "ingredients": "Burger + queso crema + ceviche de camarón + mix de ajíes + tortilla de maíz", "price": 10500 },
     { "id": "B22", "name": "Club Veggie", "ingredients": "Burger + queso cheddar + lechuga + tomate + pepinillos + salsa club", "price": 9800 },
-    { "id": "B23", "name": "Burger del mes", "ingredients": "Especial del mes - Consulte disponibilidad", "price": 0 },
-    { "id": "B24", "name": "Veggie Thai", "ingredients": "Burger garbanzos + lechuga + champignones + cebolla morada + mix de ajíes y cebollín adobado salsa ginzoo y limón", "price": 10500 }
+    { "id": "B23", "name": "Burger del mes", "ingredients": "Especial de la temporada - Consulte el sabor de hoy", "price": 0 },
+    { "id": "B24", "name": "Veggie Thai", "ingredients": "Burger garbanzos + lechuga + champignones + cebolla morada + mix de ajíes y cebollín", "price": 10500 }
   ],
   "snacks": [
-    { "id": "S1", "name": "Papas Fritas", "ingredients": "Papas rústicas con piel", "price": 3800 },
-    { "id": "S2", "name": "Aros de Cebolla", "ingredients": "Apanados crunchy", "price": 3500 },
-    { "id": "S3", "name": "Tequeños", "ingredients": "Queso fundido", "price": 4200 }
+    { "id": "S1", "name": "Papas Fritas Rústicas", "ingredients": "Crocantes con sal de mar", "price": 3800 },
+    { "id": "S2", "name": "Aros de Cebolla", "ingredients": "Apanado Panko Premium", "price": 3500 },
+    { "id": "S3", "name": "Tequeños Master", "ingredients": "Masa artesanal y queso fundido", "price": 4200 }
   ],
   "sandwiches": [
-    { "id": "W1", "name": "Club de Ruta", "ingredients": "Pollo + tocino + huevo + palta", "price": 9200 }
+    { "id": "W1", "name": "Club Sandwich de Ruta", "ingredients": "Pollo grillado + tocino ahumado + palta + huevo", "price": 9200 }
   ],
   "postres": [
-    { "id": "P1", "name": "Brownie de la Casa", "ingredients": "Chocolate amargo + helado", "price": 4500 }
+    { "id": "P1", "name": "Volcán de Chocolate", "ingredients": "Núcleo líquido + helado de vainilla", "price": 4500 }
   ],
   "drinks": {
-    "Bebidas": [
-      { "name": "Coca Cola / Sprite 350ml", "price": 1800 },
-      { "name": "Agua Mineral", "price": 1500 }
+    "La Hidratación": [
+      { "name": "Bebidas Línea Coca Cola", "price": 1800 },
+      { "name": "Agua Mineral Pureza Sur", "price": 1500 }
     ],
-    "Cervezas": [
-      { "name": "Cerveza Austral (Botella)", "price": 3500 },
-      { "name": "Heineken", "price": 3200 }
+    "Cervezas del Sur": [
+      { "name": "Schop Austral Lager 500cc", "price": 4500 },
+      { "name": "Austral Calafate (Botella)", "price": 3800 },
+      { "name": "Pinta Artesanal de la Casa", "price": 4800 }
     ],
-    "Cervezas Tiradas": [
-      { "name": "Pinta Artesanal 500ml", "price": 4800 },
-      { "name": "Schop Austral", "price": 4200 }
+    "Mixología de Ruta": [
+      { "name": "Pisco Sour Tradicional Patagónico", "price": 5800 },
+      { "name": "Michelada Ruta 9 XL", "price": 4600 },
+      { "name": "Copa de Vino (Selección Tintos)", "price": 4200 }
     ],
-    "Vinos & Sours": [
-      { "name": "Pisco Sour Tradicional", "price": 5800 },
-      { "name": "Michelada", "price": 4500 },
-      { "name": "Copa de Vino tinto/blanco", "price": 4200 }
-    ],
-    "Té y Café": [
-      { "name": "Espresso", "price": 2000 },
-      { "name": "Capuccino", "price": 2800 },
-      { "name": "Té Earl Grey", "price": 1800 }
+    "Cafetería & Té": [
+      { "name": "Espresso Doble", "price": 2200 },
+      { "name": "Capuccino con Crema", "price": 3200 },
+      { "name": "Té de Autor (Diferentes variedades)", "price": 1800 }
     ]
   },
   "extras": {
