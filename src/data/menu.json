@@ -1,42 +1,64 @@
 {
   "burgers": [
-    { "id": "BF", "name": "Burger Factory", "ingredients": "Base, salsa y extras a elección", "price": 6700, "isSpecial": true },
+    { "id": "BF", "name": "Burger Factory", "ingredients": "Base + Salsa + Extras a elección", "price": 6700 },
     { "id": "B1", "name": "Burger básica", "ingredients": "Burger + queso gouda o cheddar", "price": 8200 },
     { "id": "B2", "name": "Burger completa", "ingredients": "Burger + queso gouda + lechuga + tomate + cebolla morada + huevo frito", "price": 9600 },
     { "id": "B3", "name": "Clásica BBQ", "ingredients": "Burger + queso cheddar + tocino + huevo frito + pepinillos + salsa BBQ", "price": 10900 },
     { "id": "B4", "name": "Camarones al limón", "ingredients": "Burger + camarones al limón + palta trozada", "price": 10500 },
-    { "id": "B16", "name": "Kill Bill", "ingredients": "Burger + queso crema + camarones envueltos en tocino + salsa ginzoo", "price": 12800 }
+    { "id": "B5", "name": "Nachos", "ingredients": "Burger + queso gouda + tomate + palta trozada + mix ajíes + nachos", "price": 10500 },
+    { "id": "B6", "name": "BBQ tocino", "ingredients": "Burger + queso cheddar + tocino + aros de cebolla apanados + salsa BBQ", "price": 10500 },
+    { "id": "B7", "name": "La 420", "ingredients": "Burger veggie de garbanzos + lechuga + cebollín grillado + palta trozada + pepinillos", "price": 9500 },
+    { "id": "B8", "name": "BLT", "ingredients": "Burger + tocino + lechuga + tomate", "price": 10500 },
+    { "id": "B9", "name": "Doble cuarto libra queso", "ingredients": "2 burgers + medallón de queso crocante", "price": 13600 },
+    { "id": "B10", "name": "Provoleta", "ingredients": "Burger + provoleta + huevo + morrón", "price": 12500 },
+    { "id": "B11", "name": "Vegetariana", "ingredients": "Provoleta grillada + morrón + champignones + cebolla caramelizada + tomate", "price": 9500 },
+    { "id": "B12", "name": "Azul ruibarbo", "ingredients": "Burger + queso azul + cebolla caramelizada + salsa BBQ con ruibarbo", "price": 9800 },
+    { "id": "B13", "name": "Cheddar plancha", "ingredients": "Burger + queso cheddar + cebolla a la plancha + huevo frito", "price": 9800 },
+    { "id": "B14", "name": "Gouda frito", "ingredients": "Burger + queso gouda + cebolla caramelizada + tocino + huevo frito", "price": 10600 },
+    { "id": "B15", "name": "La tocinetta", "ingredients": "Burger + tocino crocante + chutney de tocino + chocobacon + tocinesa", "price": 10800 },
+    { "id": "B16", "name": "Kill Bill", "ingredients": "Burger + queso crema + camarones envueltos en tocino + salsa ginzoo", "price": 12800 },
+    { "id": "B17", "name": "La gran S", "ingredients": "Burger + queso cheddar + tocino + palta trozada + huevo frito", "price": 11800 },
+    { "id": "B18", "name": "La Francesa", "ingredients": "Burger + queso gouda + azul+ cebolla caramelizada + champignones", "price": 11800 },
+    { "id": "B19", "name": "La 36", "ingredients": "Burger + queso cheddar + tocino + aros de cebolla + pepinillos + salsa BBQ", "price": 11800 },
+    { "id": "B20", "name": "Los tres chanchitos", "ingredients": "Burger + queso gouda + tocino + pulled pork + longaniza + salsa BBQ", "price": 12500 },
+    { "id": "B21", "name": "La limeña", "ingredients": "Burger + queso crema + ceviche de camarón + mix de ajíes + tortilla de maíz", "price": 10500 },
+    { "id": "B22", "name": "Club Veggie", "ingredients": "Burger + queso cheddar + lechuga + tomate + pepinillos + salsa club", "price": 9800 },
+    { "id": "B23", "name": "Burger del mes", "ingredients": "Especial del mes - Consulte disponibilidad", "price": 0 },
+    { "id": "B24", "name": "Veggie Thai", "ingredients": "Burger garbanzos + lechuga + champignones + cebolla morada + mix de ajíes y cebollín adobado salsa ginzoo y limón", "price": 10500 }
   ],
   "snacks": [
-    { "id": "S1", "name": "Papas Fritas", "ingredients": "Crocantes al estilo Ruta 9", "price": 3500 },
-    { "id": "S2", "name": "Aros de Cebolla", "ingredients": "Apanados y dorados", "price": 3800 }
+    { "id": "S1", "name": "Papas Fritas", "ingredients": "Papas rústicas con piel", "price": 3800 },
+    { "id": "S2", "name": "Aros de Cebolla", "ingredients": "Apanados crunchy", "price": 3500 },
+    { "id": "S3", "name": "Tequeños", "ingredients": "Queso fundido", "price": 4200 }
   ],
   "sandwiches": [
-    { "id": "W1", "name": "Club Sandwich", "ingredients": "Pollo gratinado + tocino + huevo + lechuga + tomate", "price": 8900 }
+    { "id": "W1", "name": "Club de Ruta", "ingredients": "Pollo + tocino + huevo + palta", "price": 9200 }
   ],
   "postres": [
-    { "id": "P1", "name": "Brownie Volcán", "ingredients": "Chocolate fundido + helado de vainilla", "price": 4500 }
+    { "id": "P1", "name": "Brownie de la Casa", "ingredients": "Chocolate amargo + helado", "price": 4500 }
   ],
   "drinks": {
     "Bebidas": [
-      { "name": "Coca Cola / Sprite", "price": 1800 }
+      { "name": "Coca Cola / Sprite 350ml", "price": 1800 },
+      { "name": "Agua Mineral", "price": 1500 }
     ],
     "Cervezas": [
-      { "name": "Austral Lager", "price": 3200 }
+      { "name": "Cerveza Austral (Botella)", "price": 3500 },
+      { "name": "Heineken", "price": 3200 }
     ],
     "Cervezas Tiradas": [
-      { "name": "Pinta Artesanal", "price": 4500 }
+      { "name": "Pinta Artesanal 500ml", "price": 4800 },
+      { "name": "Schop Austral", "price": 4200 }
     ],
-    "Vinos": [
-      { "name": "Copa de la Casa", "price": 4000 }
-    ],
-    "Sours & Micheladas": [
-      { "name": "Pisco Sour Tradicional", "price": 5500 },
-      { "name": "Michelada Ruta 9", "price": 4800 }
+    "Vinos & Sours": [
+      { "name": "Pisco Sour Tradicional", "price": 5800 },
+      { "name": "Michelada", "price": 4500 },
+      { "name": "Copa de Vino tinto/blanco", "price": 4200 }
     ],
     "Té y Café": [
-      { "name": "Espresso Double", "price": 2200 },
-      { "name": "Té de Selección", "price": 1800 }
+      { "name": "Espresso", "price": 2000 },
+      { "name": "Capuccino", "price": 2800 },
+      { "name": "Té Earl Grey", "price": 1800 }
     ]
   },
   "extras": {
@@ -45,10 +67,13 @@
       { "name": "Salsa Cheddar", "price": 1500 },
       { "name": "Gouda", "price": 1500 },
       { "name": "Parmesano", "price": 1800 },
+      { "name": "Queso crema", "price": 1800 },
       { "name": "Azul", "price": 2200 },
+      { "name": "Provoleta", "price": 2200 },
       { "name": "Doble Cheddar", "price": 2500 }
     ],
     "Verduras": [
+      { "name": "Pepinillos", "price": 800 },
       { "name": "Tomate", "price": 800 },
       { "name": "Lechuga", "price": 800 },
       { "name": "Palta trozada", "price": 2500 },
@@ -58,12 +83,12 @@
     "Carnes": [
       { "name": "Tocino", "price": 1900 },
       { "name": "Longaniza ahumada", "price": 2200 },
-      { "name": "Huevo frito", "price": 1500 },
+      { "name": "Pulled Pork", "price": 2500 },
       { "name": "Burger extra", "price": 3200 }
     ],
     "Salsas": [
       { "name": "Mayonesa / Ketchup / Mostaza", "price": 800 },
-      { "name": "BBQ / Club / Mostaza miel", "price": 1000 }
+      { "name": "Salsa BBQ / Club / Miel", "price": 1000 }
     ]
   }
 }
