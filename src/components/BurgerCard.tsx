@@ -29,15 +29,7 @@ export const BurgerCard = ({ burger }: { burger: any }) => {
         <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[160px] pointer-events-none opacity-25 -z-10 transition-colors duration-1000 ${isInView ? "bg-primary" : "bg-white/5"}`} />
 
         {/* Header Info */}
-        <div className="w-full flex flex-col items-center gap-2 z-10">
-          <motion.div 
-            animate={{ opacity: isInView ? 1 : 0, scale: isInView ? 1 : 0.8 }}
-            className="glass-red px-6 py-2 rounded-full mb-4"
-          >
-            <span className="text-[10px] uppercase font-bold tracking-[0.3em] text-primary flex items-center gap-2">
-              <Award className="w-3 h-3" /> {burger.tag || "PREMIUM"}
-            </span>
-          </motion.div>
+        <div className="w-full flex flex-col items-center gap-2 z-10 px-4">
           
           <div className="relative text-center flex flex-col items-center h-24">
             <motion.h3 

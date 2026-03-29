@@ -4,193 +4,145 @@
       "id": "B1",
       "name": "Burger básica",
       "ingredients": "Burger + queso gouda o cheddar",
-      "price": 8200,
-      "tag": "Classic",
-      "category": "Vacuno"
+      "price": 8200
     },
     {
       "id": "B2",
       "name": "Burger completa",
       "ingredients": "Burger + queso gouda + lechuga + tomate + cebolla morada + huevo frito",
-      "price": 9600,
-      "tag": "Standard",
-      "category": "Vacuno"
+      "price": 9600
     },
     {
       "id": "B3",
       "name": "Clásica BBQ",
       "ingredients": "Burger + queso cheddar + tocino + huevo frito + pepinillos + salsa BBQ",
-      "price": 10900,
-      "tag": "Fetiche",
-      "category": "Vacuno"
+      "price": 10900
     },
     {
       "id": "B4",
       "name": "Camarones al limón",
       "ingredients": "Burger + camarones al limón + palta trozada",
-      "price": 10500,
-      "tag": "Premium",
-      "category": "Mar y Tierra"
+      "price": 10500
     },
     {
       "id": "B5",
       "name": "Nachos",
       "ingredients": "Burger + queso gouda + tomate + palta trozada + mix ajíes + nachos",
-      "price": 10500,
-      "tag": "Moli",
-      "category": "Tex-Mex"
+      "price": 10500
     },
     {
       "id": "B6",
       "name": "BBQ tocino",
       "ingredients": "Burger + queso cheddar + tocino + aros de cebolla apanados + salsa BBQ",
-      "price": 10500,
-      "tag": "Crunchy",
-      "category": "Vacuno"
+      "price": 10500
     },
     {
       "id": "B7",
       "name": "La 420",
       "ingredients": "Burger veggie de garbanzos + lechuga + cebollín grillado + palta trozada + pepinillos",
-      "price": 9500,
-      "tag": "Veggie",
-      "category": "Vegetariana"
+      "price": 9500
     },
     {
       "id": "B8",
       "name": "BLT",
       "ingredients": "Burger + tocino + lechuga + tomate",
-      "price": 10500,
-      "tag": "Clubhouse",
-      "category": "Vacuno"
+      "price": 10500
     },
     {
       "id": "B9",
       "name": "Doble cuarto libra queso",
       "ingredients": "2 burgers + medallón de queso crocante",
-      "price": 13600,
-      "tag": "Max",
-      "category": "Vacuno"
+      "price": 13600
     },
     {
       "id": "B10",
       "name": "Provoleta",
       "ingredients": "Burger + provoleta + huevo + morrón",
-      "price": 12500,
-      "tag": "Andina",
-      "category": "Vacuno"
+      "price": 12500
     },
     {
       "id": "B11",
       "name": "Vegetariana",
       "ingredients": "Provoleta grillada + morrón + champignones + cebolla caramelizada + tomate",
-      "price": 9500,
-      "tag": "Veggie",
-      "category": "Vegetariana"
+      "price": 9500
     },
     {
       "id": "B12",
       "name": "Azul ruibarbo",
       "ingredients": "Burger + queso azul + cebolla caramelizada + salsa BBQ con ruibarbo",
-      "price": 9800,
-      "tag": "Patagonia",
-      "category": "Especial"
+      "price": 9800
     },
     {
       "id": "B13",
       "name": "Cheddar plancha",
       "ingredients": "Burger + queso cheddar + cebolla a la plancha + huevo frito",
-      "price": 9800,
-      "tag": "Street",
-      "category": "Vacuno"
+      "price": 9800
     },
     {
       "id": "B14",
       "name": "Gouda frito",
       "ingredients": "Burger + queso gouda + cebolla caramelizada + tocino + huevo frito",
-      "price": 10600,
-      "tag": "Comfort",
-      "category": "Vacuno"
+      "price": 10600
     },
     {
       "id": "B15",
       "name": "La tocinetta",
       "ingredients": "Burger + tocino crocante + chutney de tocino + chocobacon + tocinesa",
-      "price": 10800,
-      "tag": "Overdose",
-      "category": "Tocino"
+      "price": 10800
     },
     {
       "id": "B16",
       "name": "Kill Bill",
       "ingredients": "Burger + queso crema + camarones envueltos en tocino + salsa ginzoo",
-      "price": 12800,
-      "tag": "Extreme",
-      "category": "Mar y Tierra"
+      "price": 12800
     },
     {
       "id": "B17",
       "name": "La gran S",
       "ingredients": "Burger + queso cheddar + tocino + palta trozada + huevo frito",
-      "price": 11800,
-      "tag": "Master",
-      "category": "Vacuno"
+      "price": 11800
     },
     {
       "id": "B18",
       "name": "La Francesa",
       "ingredients": "Burger + queso gouda + azul+ cebolla caramelizada + champignones",
-      "price": 11800,
-      "tag": "Gourmet",
-      "category": "Vacuno"
+      "price": 11800
     },
     {
       "id": "B19",
       "name": "La 36",
       "ingredients": "Burger + queso cheddar + tocino + aros de cebolla + pepinillos + salsa BBQ",
-      "price": 11800,
-      "tag": "Standard",
-      "category": "Vacuno"
+      "price": 11800
     },
     {
       "id": "B20",
       "name": "Los tres chanchitos",
       "ingredients": "Burger + queso gouda + tocino + pulled pork + longaniza + salsa BBQ",
-      "price": 12500,
-      "tag": "Pork-Lover",
-      "category": "Cerdos"
+      "price": 12500
     },
     {
       "id": "B21",
       "name": "La limeña",
       "ingredients": "Burger + queso crema + ceviche de camarón + mix de ajíes + tortilla de maíz",
-      "price": 10500,
-      "tag": "Fusion",
-      "category": "Especial"
+      "price": 10500
     },
     {
       "id": "B22",
       "name": "Club Veggie",
       "ingredients": "Burger + queso cheddar + lechuga + tomate + pepinillos + salsa club",
-      "price": 9800,
-      "tag": "Veggie",
-      "category": "Vegetariana"
+      "price": 9800
     },
     {
       "id": "B23",
       "name": "Burger del mes",
       "ingredients": "Según selección",
-      "price": 0,
-      "tag": "Limited",
-      "category": "Especial"
+      "price": 0
     },
     {
       "id": "B24",
       "name": "Veggie Thai",
       "ingredients": "Burger garbanzos + lechuga + champignones + cebolla morada + mix de ajíes y cebollín adobado salsa ginzoo y limón",
-      "price": 10500,
-      "tag": "Asian-Fusion",
-      "category": "Vegetariana"
+      "price": 10500
     }
   ],
   "extras": {
