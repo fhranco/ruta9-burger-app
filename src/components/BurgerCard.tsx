@@ -28,20 +28,26 @@ export const BurgerCard = ({ burger }: { burger: any }) => {
         {/* Glow Background */}
         <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[160px] pointer-events-none opacity-25 -z-10 transition-colors duration-1000 ${isInView ? "bg-primary" : "bg-white/5"}`} />
 
-        {/* Header Info - REWORKED FOR ID PROMINENCE */}
-        <div className="w-full flex flex-col items-center gap-2 z-10 px-4">
-          <div className="relative text-center flex flex-col items-center h-28">
-            <motion.h3 
-              initial={{ opacity: 0, y: -20 }}
-              animate={isInView ? { opacity: 0.35, y: 0 } : {}}
-              className="text-[140px] font-black leading-none tracking-tighter absolute -top-12 text-white/30 pointer-events-none select-none"
-            >
-              {burger.id}
-            </motion.h3>
+        {/* Header Info - REWORKED FOR MAX ID VISIBILITY */}
+        <div className="w-full flex flex-col items-center gap-1 z-10 px-4">
+          
+          {/* THE TACTICAL STAMP (v19.0) */}
+          <motion.div 
+             initial={{ scale: 0.8, opacity: 0 }}
+             animate={isInView ? { scale: 1, opacity: 1 } : {}}
+             transition={{ type: "spring", stiffness: 200 }}
+             className="bg-primary px-6 py-2 rounded-2xl shadow-[0_20px_40px_rgba(209,35,43,0.6)] border-2 border-white/20 transform -rotate-3 mb-4"
+          >
+             <span className="text-4xl font-black italic text-white tracking-tighter leading-none">
+                {burger.id}
+             </span>
+          </motion.div>
+
+          <div className="relative text-center flex flex-col items-center h-20">
             <motion.h2 
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              className="text-4xl md:text-5xl font-black italic font-serif text-white relative z-20 tracking-tighter drop-shadow-[0_15px_40px_rgba(0,0,0,0.95)] uppercase mt-4"
+              className="text-4xl md:text-5xl font-black italic font-serif text-white relative z-20 tracking-tighter drop-shadow-[0_15px_40px_rgba(0,0,0,0.95)] uppercase"
             >
               {burger.name}
             </motion.h2>
@@ -67,7 +73,7 @@ export const BurgerCard = ({ burger }: { burger: any }) => {
           </motion.div>
         </div>
 
-        {/* Interaction Footer Area - CLEANER PRICE */}
+        {/* Interaction Footer Area */}
         <div className="w-full max-w-[500px] flex flex-col gap-8 z-10 relative">
           
           {/* Ingredients */}
@@ -77,7 +83,7 @@ export const BurgerCard = ({ burger }: { burger: any }) => {
               </p>
           </div>
 
-          {/* Action Pill - REMOVED PRECIO CHILE */}
+          {/* Action Pill - PURE PRICE */}
           <div className="flex items-center justify-between bg-black/60 backdrop-blur-3xl border border-white/20 rounded-full p-2.5 pl-10 shadow-4xl relative overflow-visible group">
             
             <AnimatePresence>
