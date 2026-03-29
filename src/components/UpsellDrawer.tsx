@@ -12,9 +12,10 @@ interface UpsellDrawerProps {
 }
 
 export const UpsellDrawer = ({ isOpen, onClose, burgerName }: UpsellDrawerProps) => {
-  const addItem = useTray((state) => state.addItem);
+  const addExtraToLastItem = useTray((state) => state.addExtraToLastItem);
   const items = useTray((state) => state.items);
   
+  const currentItem = items[items.length - 1];
   const categories = Object.keys(menuData.extras);
 
   return (
@@ -27,7 +28,7 @@ export const UpsellDrawer = ({ isOpen, onClose, burgerName }: UpsellDrawerProps)
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-[110] bg-black/80 backdrop-blur-md"
+            className="fixed inset-0 z-[160] bg-black/80 backdrop-blur-md"
           />
 
           {/* Drawer - Higher and more robust */}
@@ -36,7 +37,7 @@ export const UpsellDrawer = ({ isOpen, onClose, burgerName }: UpsellDrawerProps)
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed bottom-0 left-0 right-0 z-[120] bg-asphalt border-t-2 border-primary/30 rounded-t-[3.5rem] h-[85vh] flex flex-col shadow-[0_-30px_60px_rgba(0,0,0,0.9)] overflow-hidden"
+            className="fixed bottom-0 left-0 right-0 z-[170] bg-asphalt border-t-2 border-primary/30 rounded-t-[3.5rem] h-[85vh] flex flex-col shadow-[0_-30px_60px_rgba(0,0,0,0.9)] overflow-hidden"
           >
             {/* 1. Header Area: Branding & Exit */}
             <div className="px-8 pt-10 pb-6 flex items-start justify-between bg-gradient-to-b from-black/40 to-transparent">
@@ -70,12 +71,12 @@ export const UpsellDrawer = ({ isOpen, onClose, burgerName }: UpsellDrawerProps)
                         
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                             {(menuData.extras as any)[cat].map((extra: any) => {
-                                const isAdded = items.find(i => i.product.name === extra.name);
+                                const isAdded = currentItem?.extras.find(i => i.name === extra.name);
                                 return (
                                     <button
                                         key={extra.name}
                                         onClick={() => {
-                                           addItem({ ...extra, type: 'extra', id: `EX-${extra.name}` });
+                                           addExtraToLastItem({ ...extra, type: 'extra', id: `EX-${extra.name}` });
                                         }}
                                         className={`relative bg-white/5 border ${isAdded ? 'border-primary bg-primary/10' : 'border-white/5'} rounded-2xl p-4 flex flex-col items-start gap-1 transition-all text-left group active:scale-95`}
                                     >
@@ -88,11 +89,6 @@ export const UpsellDrawer = ({ isOpen, onClose, burgerName }: UpsellDrawerProps)
                                         <span className={`text-sm font-black tracking-tighter ${isAdded ? 'text-white' : 'text-primary'}`}>
                                             + {extra.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}
                                         </span>
-                                        {isAdded && (
-                                           <div className="absolute -bottom-1 -right-1 bg-primary text-[9px] font-black px-2 py-0.5 rounded-full text-white shadow-lg">
-                                               x{isAdded.quantity}
-                                           </div>
-                                        )}
                                     </button>
                                 );
                             })}
@@ -111,7 +107,7 @@ export const UpsellDrawer = ({ isOpen, onClose, burgerName }: UpsellDrawerProps)
                     LISTO, CONTINUAR NAVEGANDO <Check className="w-5 h-5" />
                 </button>
                 <p className="text-center text-[10px] font-bold text-white/20 uppercase tracking-[0.4em] mt-6">
-                   PRECIOS EN PESOS CHILENOS • RUTA 9
+                   EXPLORANDO LA RUTA 9 • CHILE
                 </p>
             </div>
           </motion.div>

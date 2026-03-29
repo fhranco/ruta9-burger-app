@@ -9,8 +9,10 @@ interface Product {
 }
 
 interface TrayItem {
+  id: string; // Internal unique ID (timestamp based)
   product: Product;
   quantity: number;
+  extras: Product[]; // Attached extras for this specific item block
 }
 
 interface TrayState {
@@ -18,6 +20,7 @@ interface TrayState {
   userName: string;
   setUserName: (name: string) => void;
   addItem: (product: Product) => void;
+  addExtraToLastItem: (extra: Product) => void;
   removeItem: (id: string) => void;
   clearTray: () => void;
   isOpen: boolean;
@@ -29,31 +32,36 @@ export const useTray = create<TrayState>((set) => ({
   userName: "",
   setUserName: (name) => set({ userName: name }),
   isOpen: false,
+  
   addItem: (product) => 
     set((state) => {
-      const productId = product.id || product.name;
-      const existing = state.items.find(item => (item.product.id || item.product.name) === productId);
-      
-      if (existing) {
-        return {
-          items: state.items.map(item => 
-            (item.product.id || item.product.name) === productId
-              ? { ...item, quantity: item.quantity + 1 } 
-              : item
-          )
-        };
-      }
-      return { items: [...state.items, { product: { ...product, id: productId }, quantity: 1 }] };
+      // Create a unique block for each item added (even if it's the same burger, for customization)
+      const newItem: TrayItem = {
+        id: Math.random().toString(36).substring(7),
+        product,
+        quantity: 1,
+        extras: []
+      };
+      return { items: [...state.items, newItem] };
     }),
+
+  addExtraToLastItem: (extra) =>
+    set((state) => {
+      if (state.items.length === 0) return state;
+      const lastIndex = state.items.length - 1;
+      const updatedItems = [...state.items];
+      updatedItems[lastIndex] = {
+        ...updatedItems[lastIndex],
+        extras: [...updatedItems[lastIndex].extras, extra]
+      };
+      return { items: updatedItems };
+    }),
+
   removeItem: (id) => 
     set((state) => ({
-      items: state.items.map(item => {
-        if ((item.product.id || item.product.name) === id) {
-          return { ...item, quantity: item.quantity - 1 };
-        }
-        return item;
-      }).filter(item => item.quantity > 0)
+      items: state.items.filter(item => item.id !== id)
     })),
+    
   clearTray: () => set({ items: [], userName: "" }),
   toggleTray: () => set((state) => ({ isOpen: !state.isOpen })),
 }));
