@@ -15,6 +15,8 @@ interface TrayItem {
 
 interface TrayState {
   items: TrayItem[];
+  userName: string;
+  setUserName: (name: string) => void;
   addItem: (product: Product) => void;
   removeItem: (id: string) => void;
   clearTray: () => void;
@@ -24,10 +26,11 @@ interface TrayState {
 
 export const useTray = create<TrayState>((set) => ({
   items: [],
+  userName: "",
+  setUserName: (name) => set({ userName: name }),
   isOpen: false,
   addItem: (product) => 
     set((state) => {
-      // For extras, we use the name as ID if no ID is provided
       const productId = product.id || product.name;
       const existing = state.items.find(item => (item.product.id || item.product.name) === productId);
       
@@ -51,6 +54,6 @@ export const useTray = create<TrayState>((set) => ({
         return item;
       }).filter(item => item.quantity > 0)
     })),
-  clearTray: () => set({ items: [] }),
+  clearTray: () => set({ items: [], userName: "" }),
   toggleTray: () => set((state) => ({ isOpen: !state.isOpen })),
 }));
