@@ -192,5 +192,53 @@
       "tag": "Asian-Fusion",
       "category": "Vegetariana"
     }
-  ]
+  ],
+  "extras": {
+    "Quesos": [
+      { "name": "Cheddar", "price": 1500 },
+      { "name": "Salsa Cheddar", "price": 1500 },
+      { "name": "Gouda", "price": 1500 },
+      { "name": "Parmesano", "price": 1800 },
+      { "name": "Queso crema", "price": 1800 },
+      { "name": "Azul", "price": 2200 },
+      { "name": "Provoleta", "price": 2200 },
+      { "name": "Doble Cheddar", "price": 2500 },
+      { "name": "Doble Gouda", "price": 2500 },
+      { "name": "4 quesos", "price": 3000 }
+    ],
+    "Verduras": [
+      { "name": "Pepinillos", "price": 800 },
+      { "name": "Tomate", "price": 800 },
+      { "name": "Lechuga", "price": 800 },
+      { "name": "Mix de ajíes", "price": 2000 },
+      { "name": "Morrones", "price": 1500 },
+      { "name": "Palta trozada", "price": 2500 },
+      { "name": "Cebolla morada", "price": 1500 },
+      { "name": "Cebolla", "price": 800 },
+      { "name": "Caramelizada", "price": 1500 },
+      { "name": "Aros de cebolla", "price": 1200 },
+      { "name": "Cebollín", "price": 1500 },
+      { "name": "Champignones", "price": 1500 }
+    ],
+    "Carnes": [
+      { "name": "Tocino", "price": 1900 },
+      { "name": "Longaniza ahumada", "price": 2200 },
+      { "name": "Pulled Pork", "price": 2500 },
+      { "name": "Brisket ahumada", "price": 3200 },
+      { "name": "Camarones", "price": 3600 },
+      { "name": "Camarón Kill Bill", "price": 5500 },
+      { "name": "Huevo frito", "price": 1500 },
+      { "name": "Huevo revuelto", "price": 1800 },
+      { "name": "Burger extra", "price": 3200 },
+      { "name": "Burger extra doble", "price": 4800 }
+    ],
+    "Salsas": [
+      { "name": "Mayonesa Base", "price": 800 },
+      { "name": "Ketchup Base", "price": 800 },
+      { "name": "Mostaza Base", "price": 800 },
+      { "name": "BBQ Premium", "price": 1000 },
+      { "name": "Club Premium", "price": 1000 },
+      { "name": "Mostaza Miel Premium", "price": 1000 }
+    ]
+  }
 }
