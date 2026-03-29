@@ -64,7 +64,7 @@ export const BurgerCard = ({ burger }: { burger: any }) => {
           className="relative w-full aspect-square flex items-center justify-center filter drop-shadow-[0_45px_100px_rgba(0,0,0,0.95)]"
         >
           <img 
-            src={`/images/products/${burger.id}.png`} 
+            src={`/images/products/${burger.id}.webp`} 
             alt={burger.name}
             className="w-full h-full object-contain transform scale-110 pointer-events-none"
             loading="eager"
