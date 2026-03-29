@@ -111,7 +111,10 @@ export const BurgerCard = ({ burger }: { burger: any }) => {
             </div>
             
             <div className="flex gap-2">
-               <button className="bg-primary hover:bg-[#A32025] text-white font-black h-16 px-10 rounded-full flex items-center gap-3 transition-all shadow-[0_15px_35px_rgba(209,35,43,0.4)] hover:scale-105 active:scale-95 min-w-[160px] justify-center text-sm tracking-widest">
+               <button 
+                  onClick={handleAddAction}
+                  className="bg-primary hover:bg-[#A32025] text-white font-black h-16 px-10 rounded-full flex items-center gap-3 transition-all shadow-[0_15px_35px_rgba(209,35,43,0.4)] hover:scale-105 active:scale-95 min-w-[160px] justify-center text-sm tracking-widest"
+               >
                   LO QUIERO <ChevronUp className="w-5 h-5 animate-bounce" />
                </button>
             </div>
