@@ -5,19 +5,22 @@ interface Product {
   name: string;
   price: number;
   tag?: string;
-  type?: "burger" | "extra";
+  type?: "burger" | "extra" | "snack" | "sandwich" | "postre" | "drink";
+  ingredients?: string;
 }
 
 interface TrayItem {
-  id: string; // Internal unique ID (timestamp based)
+  id: string;
   product: Product;
   quantity: number;
-  extras: Product[]; // Attached extras for this specific item block
+  extras: Product[];
 }
 
 interface TrayState {
   items: TrayItem[];
   userName: string;
+  activeSection: "burgers" | "snacks" | "sandwiches" | "postres" | "drinks";
+  setActiveSection: (section: "burgers" | "snacks" | "sandwiches" | "postres" | "drinks") => void;
   setUserName: (name: string) => void;
   addItem: (product: Product) => void;
   addExtraToLastItem: (extra: Product) => void;
@@ -30,12 +33,14 @@ interface TrayState {
 export const useTray = create<TrayState>((set) => ({
   items: [],
   userName: "",
-  setUserName: (name) => set({ userName: name }),
+  activeSection: "burgers",
   isOpen: false,
+  
+  setActiveSection: (section) => set({ activeSection: section }),
+  setUserName: (name) => set({ userName: name }),
   
   addItem: (product) => 
     set((state) => {
-      // Create a unique block for each item added (even if it's the same burger, for customization)
       const newItem: TrayItem = {
         id: Math.random().toString(36).substring(7),
         product,
