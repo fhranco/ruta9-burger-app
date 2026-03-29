@@ -28,21 +28,20 @@ export const BurgerCard = ({ burger }: { burger: any }) => {
         {/* Glow Background */}
         <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[160px] pointer-events-none opacity-25 -z-10 transition-colors duration-1000 ${isInView ? "bg-primary" : "bg-white/5"}`} />
 
-        {/* Header Info */}
+        {/* Header Info - REWORKED FOR ID PROMINENCE */}
         <div className="w-full flex flex-col items-center gap-2 z-10 px-4">
-          
-          <div className="relative text-center flex flex-col items-center h-24">
+          <div className="relative text-center flex flex-col items-center h-28">
             <motion.h3 
               initial={{ opacity: 0, y: -20 }}
-              animate={isInView ? { opacity: 0.15, y: 0 } : {}}
-              className="text-[120px] font-black leading-none tracking-tighter absolute -top-10"
+              animate={isInView ? { opacity: 0.35, y: 0 } : {}}
+              className="text-[140px] font-black leading-none tracking-tighter absolute -top-12 text-white/30 pointer-events-none select-none"
             >
               {burger.id}
             </motion.h3>
             <motion.h2 
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              className="text-4xl md:text-5xl font-black italic font-serif text-white relative z-20 tracking-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
+              className="text-4xl md:text-5xl font-black italic font-serif text-white relative z-20 tracking-tighter drop-shadow-[0_15px_40px_rgba(0,0,0,0.95)] uppercase mt-4"
             >
               {burger.name}
             </motion.h2>
@@ -68,7 +67,7 @@ export const BurgerCard = ({ burger }: { burger: any }) => {
           </motion.div>
         </div>
 
-        {/* Interaction Footer Area - PRICE CLARITY REWORKED */}
+        {/* Interaction Footer Area - CLEANER PRICE */}
         <div className="w-full max-w-[500px] flex flex-col gap-8 z-10 relative">
           
           {/* Ingredients */}
@@ -78,7 +77,7 @@ export const BurgerCard = ({ burger }: { burger: any }) => {
               </p>
           </div>
 
-          {/* Action Pill - High Contrast Price */}
+          {/* Action Pill - REMOVED PRECIO CHILE */}
           <div className="flex items-center justify-between bg-black/60 backdrop-blur-3xl border border-white/20 rounded-full p-2.5 pl-10 shadow-4xl relative overflow-visible group">
             
             <AnimatePresence>
@@ -96,8 +95,7 @@ export const BurgerCard = ({ burger }: { burger: any }) => {
             </AnimatePresence>
 
             <div className="flex flex-col">
-              <span className="text-[9px] uppercase font-black tracking-[0.3em] text-primary mb-1">PRECIO CHILE</span>
-              <span className="text-3xl md:text-4xl font-black text-white tracking-tighter drop-shadow-lg">
+              <span className="text-4xl font-black text-white tracking-tighter drop-shadow-lg">
                 {burger.price === 0 ? "Consulte" : burger.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}
               </span>
             </div>
