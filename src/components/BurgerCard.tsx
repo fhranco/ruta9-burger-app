@@ -54,20 +54,20 @@ export const BurgerCard = ({ burger }: { burger: any }) => {
           </div>
         </div>
 
-        {/* Central Hero Image */}
-        <div className="flex-grow w-full max-w-[500px] flex items-center justify-center relative z-0 my-2 min-h-[25vh] max-h-[40vh]">
+        {/* Central Hero Image - MASSIVE SCALE */}
+        <div className="flex-grow w-full flex items-center justify-center relative z-0 my-[-10px] min-h-[35vh]">
           <motion.div 
             animate={isInView ? {
               y: [0, -10, 0],
               rotate: [0, 2, 0, -2, 0]
             } : {}}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="relative w-full h-full flex items-center justify-center filter drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)]"
+            className="relative w-full h-[110%] flex items-center justify-center filter drop-shadow-[0_45px_80px_rgba(0,0,0,0.95)]"
           >
             <img 
               src={`/images/products/${burger.id}.webp`} 
               alt={burger.name}
-              className="w-full h-full object-contain transform scale-[1.05] pointer-events-none"
+              className="w-[120%] h-[120%] sm:w-full sm:h-full max-w-[500px] object-contain transform scale-[1.15] sm:scale-125 pointer-events-none drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]"
               loading="eager"
             />
           </motion.div>
@@ -76,9 +76,9 @@ export const BurgerCard = ({ burger }: { burger: any }) => {
         {/* Interaction Footer Area */}
         <div className="w-full max-w-[500px] flex flex-col gap-8 z-10 relative">
           
-          {/* Ingredients */}
-          <div className="text-center px-4">
-              <p className="text-sm md:text-base text-snow/70 leading-relaxed font-medium tracking-wide">
+          {/* Ingredients / Instructions */}
+          <div className="text-center px-6">
+              <p className="text-base sm:text-lg text-snow leading-snug font-bold tracking-wide break-words drop-shadow-md pb-2">
                 {burger.ingredients}
               </p>
           </div>

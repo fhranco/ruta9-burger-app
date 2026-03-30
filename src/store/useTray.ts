@@ -55,9 +55,14 @@ export const useTray = create<TrayState>((set) => ({
       if (state.items.length === 0) return state;
       const lastIndex = state.items.length - 1;
       const updatedItems = [...state.items];
+      const existingExtras = updatedItems[lastIndex].extras;
+      const extraExists = existingExtras.some(e => e.name === extra.name);
+      
       updatedItems[lastIndex] = {
         ...updatedItems[lastIndex],
-        extras: [...updatedItems[lastIndex].extras, extra]
+        extras: extraExists 
+          ? existingExtras.filter(e => e.name !== extra.name)
+          : [...existingExtras, extra]
       };
       return { items: updatedItems };
     }),
