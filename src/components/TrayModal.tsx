@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Trash2, MapPin, CheckCircle2, UserCircle, Zap, Plus, ChevronRight, MessageSquareDashed, AtSign, Store, Send } from "lucide-react";
 
 export const TrayModal = () => {
-  const { items, isOpen, toggleTray, removeItem, clearTray, userName, setUserName } = useTray();
+  const { items, isOpen, toggleTray, removeItem, removeExtraFromItem, clearTray, userName, setUserName } = useTray();
 
   const calculateItemTotal = (item: any) => {
     const burgerPrice = item.product.price;
@@ -146,10 +146,16 @@ export const TrayModal = () => {
                               {item.extras.length > 0 && (
                                  <div className="bg-black/40 rounded-2xl p-3 space-y-1.5 border border-white/5">
                                     <h5 className="text-[8px] font-black uppercase tracking-[0.2em] text-white/20 mb-1">PERSONALIZACIÓN CON EXTRAS:</h5>
-                                    {item.extras.map((extra: any, idx: number) => (
-                                       <div key={idx} className="flex items-center justify-between">
+                                      {item.extras.map((extra: any, idx: number) => (
+                                       <div key={idx} className="flex items-center justify-between group">
                                           <div className="flex items-center gap-2">
-                                             <div className="w-1 h-1 rounded-full bg-primary shadow-[0_0_8px_rgba(209,35,43,1)]" />
+                                             <button 
+                                                onClick={() => removeExtraFromItem(item.id, extra.name)}
+                                                className="w-4 h-4 rounded-full bg-red-500/20 flex items-center justify-center hover:bg-red-500/80 transition-colors shrink-0"
+                                             >
+                                                <X className="w-2.5 h-2.5 text-white" />
+                                             </button>
+                                             <div className="w-1 h-1 rounded-full bg-primary shadow-[0_0_8px_rgba(209,35,43,1)] opacity-50" />
                                              <span className="text-[10px] font-bold text-white/70 uppercase tracking-tight">{extra.name}</span>
                                           </div>
                                           <span className="text-[9px] font-black text-primary">

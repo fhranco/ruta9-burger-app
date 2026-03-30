@@ -78,15 +78,15 @@ export const UpsellDrawer = ({ isOpen, onClose, burgerName }: UpsellDrawerProps)
                                         onClick={() => {
                                            addExtraToLastItem({ ...extra, type: 'extra', id: `EX-${extra.name}` });
                                         }}
-                                        className={`relative bg-white/5 border ${isAdded ? 'border-primary bg-primary/10' : 'border-white/5'} rounded-2xl p-4 flex flex-col items-start gap-1 transition-all text-left group active:scale-95`}
+                                        className={`relative bg-white/5 border ${isAdded ? 'border-green-500 bg-green-500/20 shadow-[0_10px_20px_rgba(34,197,94,0.3)]' : 'border-white/5 hover:border-white/20'} rounded-2xl p-4 flex flex-col items-start gap-1 transition-all text-left group active:scale-95`}
                                     >
-                                        <div className={`absolute top-2 right-2 w-5 h-5 rounded-full flex items-center justify-center transition-all ${isAdded ? 'bg-primary text-white scale-110' : 'bg-white/5 text-white/20'}`}>
+                                        <div className={`absolute top-2 right-2 w-5 h-5 rounded-full flex items-center justify-center transition-all ${isAdded ? 'bg-green-500 text-white scale-110 shadow-[0_0_15px_rgba(34,197,94,0.6)]' : 'bg-white/5 text-white/20'}`}>
                                             {isAdded ? <Check className="w-3 h-3" /> : <Plus className="w-3 h-3" />}
                                         </div>
-                                        <span className={`text-[12px] font-bold leading-tight pr-4 ${isAdded ? 'text-white' : 'text-white/80'} transition-colors mb-1`}>
+                                        <span className={`text-[12px] font-bold leading-tight pr-4 ${isAdded ? 'text-white drop-shadow-md' : 'text-white/80'} transition-colors mb-1`}>
                                             {extra.name}
                                         </span>
-                                        <span className={`text-sm font-black tracking-tighter ${isAdded ? 'text-white' : 'text-primary'}`}>
+                                        <span className={`text-sm font-black tracking-tighter ${isAdded ? 'text-green-400 drop-shadow-[0_0_10px_rgba(74,222,128,0.8)]' : 'text-primary'}`}>
                                             + {extra.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}
                                         </span>
                                     </button>

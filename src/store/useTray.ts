@@ -26,6 +26,7 @@ interface TrayState {
   addExtraToLastItem: (extra: Product) => void;
   removeItem: (id: string) => void;
   removeProduct: (productId: string) => void;
+  removeExtraFromItem: (itemId: string, extraName: string) => void;
   clearTray: () => void;
   isOpen: boolean;
   toggleTray: () => void;
@@ -76,6 +77,15 @@ export const useTray = create<TrayState>((set) => ({
   removeProduct: (productId) =>
     set((state) => ({
       items: state.items.filter(item => item.product.id !== productId)
+    })),
+
+  removeExtraFromItem: (itemId, extraName) =>
+    set((state) => ({
+      items: state.items.map(item => 
+        item.id === itemId 
+          ? { ...item, extras: item.extras.filter(extra => extra.name !== extraName) }
+          : item
+      )
     })),
     
   clearTray: () => set({ items: [], userName: "" }),
