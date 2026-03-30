@@ -60,7 +60,7 @@ export const Navigation = () => {
                      onClick={() => setActiveSection(section.id as any)}
                      className={`relative px-4 py-3 rounded-3xl flex flex-col items-center gap-1 transition-all active:scale-90 ${isActive ? 'text-white' : 'text-white/20 hover:text-white/40'}`}
                    >
-                      <div className={`transition-transform duration-300 ${isActive ? 'scale-125' : 'scale-100'}`}>
+                      <div className={`transition-all duration-300 ${isActive ? 'scale-[1.3] drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] saturate-200' : 'scale-100 grayscale-[0.85] opacity-30 hover:opacity-100 hover:grayscale-0'}`}>
                         {section.icon}
                       </div>
                       
