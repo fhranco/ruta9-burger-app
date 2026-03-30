@@ -19,8 +19,8 @@ interface TrayItem {
 interface TrayState {
   items: TrayItem[];
   userName: string;
-  activeSection: "burgers" | "snacks" | "sandwiches" | "postres" | "drinks";
-  setActiveSection: (section: "burgers" | "snacks" | "sandwiches" | "postres" | "drinks") => void;
+  activeSection: "factory" | "burgers" | "snacks" | "sandwiches" | "postres" | "drinks";
+  setActiveSection: (section: "factory" | "burgers" | "snacks" | "sandwiches" | "postres" | "drinks") => void;
   setUserName: (name: string) => void;
   addItem: (product: Product) => void;
   addExtraToLastItem: (extra: Product) => void;

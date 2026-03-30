@@ -78,7 +78,7 @@ export const MenuExplorer = () => {
         )}
 
         {/* CASE 2: REGULAR SECTIONS (SNACKS, POSTRES) WITH GIGANTIC TITLES */}
-        {(activeSection === "burgers" || activeSection === "snacks" || activeSection === "sandwiches" || activeSection === "postres") && activeSection !== "factory" && (
+        {(activeSection === "burgers" || activeSection === "snacks" || activeSection === "sandwiches" || activeSection === "postres") && (
            <motion.div 
              key={activeSection}
              initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
