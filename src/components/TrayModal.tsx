@@ -217,17 +217,30 @@ export const TrayModal = () => {
                    </button>
                 </div>
 
-                <div className="flex items-center justify-between pt-2">
-                   <button 
-                       onClick={clearTray}
-                       className="text-[9px] font-bold text-white/20 uppercase tracking-[0.3em] hover:text-red-500 transition-colors flex items-center gap-2"
-                   >
-                       <Trash2 className="w-3 h-3" /> BORRAR RUTA
-                   </button>
+                <div className="flex flex-col gap-3 pt-2">
+                   <div className="flex items-center justify-between">
+                       <span className="flex items-center gap-1.5 text-[8px] sm:text-[9px] font-black text-white/40 uppercase tracking-[0.1em]">
+                           <MapPin className="w-3 h-3 text-primary shrink-0" />
+                           <span className="truncate">LAUTARO NAVARRO 1087</span>
+                       </span>
+                       <span className="flex items-center gap-1.5 text-[8px] sm:text-[9px] font-black text-white/40 tracking-[0.1em]">
+                           <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse shrink-0"></span>
+                           +56 9 5763 6076
+                       </span>
+                   </div>
+                   
+                   <div className="flex items-center justify-between border-t border-white/5 pt-3">
+                       <button 
+                           onClick={clearTray}
+                           className="text-[9px] font-bold text-white/20 uppercase tracking-[0.3em] hover:text-red-500 transition-colors flex items-center gap-2"
+                       >
+                           <Trash2 className="w-3 h-3" /> BORRAR RUTA
+                       </button>
 
-                   <a href="https://www.instagram.com/ruta9.burgers" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-[9px] font-bold text-white/30 uppercase tracking-[0.2em] hover:text-[#E1306C] transition-colors">
-                       <AtSign className="w-4 h-4" /> @RUTA9.BURGERS
-                   </a>
+                       <a href="https://www.instagram.com/ruta9.burgers" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 text-[9px] font-bold text-white/30 uppercase tracking-[0.2em] hover:text-[#E1306C] transition-colors">
+                           <AtSign className="w-3 h-3" /> @RUTA9.BURGERS
+                       </a>
+                   </div>
                 </div>
             </div>
 
