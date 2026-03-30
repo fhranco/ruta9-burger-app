@@ -6,7 +6,7 @@ import { BurgerCard } from "./BurgerCard";
 import menuData from "@/data/menu.json";
 import { useTray } from "@/store/useTray";
 import { motion, AnimatePresence } from "framer-motion";
-import { Zap, Construction, ChevronDown } from "lucide-react";
+import { Zap, ChevronDown } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,27 +52,8 @@ export const MenuExplorer = () => {
                  </h1>
               </div>
 
-              <div className="relative z-10 flex flex-col items-center gap-6 max-w-[400px]">
-                  <div className="bg-primary p-4 rounded-3xl shadow-2xl mb-2">
-                     <Construction className="w-12 h-12 text-white" />
-                  </div>
-                  <h2 className="text-5xl font-black italic text-white uppercase tracking-tighter leading-none">
-                     BURGER <br /> <span className="text-primary not-italic">FACTORY</span>
-                  </h2>
-                  <p className="text-snow/60 text-sm leading-relaxed font-medium">
-                     {menuData.factory.description} <br />
-                     <span className="text-white/80 font-bold mt-2 block">
-                        INCLUYE: {menuData.factory.includes}
-                     </span>
-                  </p>
-                  
-                  <div className="w-full mt-4">
-                     <BurgerCard burger={{ ...menuData.factory, price: menuData.factory.basePrice }} />
-                  </div>
-
-                  <div className="mt-10 animate-bounce opacity-20">
-                     <ChevronDown className="w-6 h-6 text-white" />
-                  </div>
+              <div className="relative w-full z-10 flex flex-col items-center">
+                 <BurgerCard burger={{ ...menuData.factory, price: menuData.factory.basePrice }} />
               </div>
            </motion.div>
         )}

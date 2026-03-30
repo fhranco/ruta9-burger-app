@@ -2,9 +2,8 @@
   "factory": {
     "id": "BF",
     "name": "Burger Factory",
-    "description": "Tu creación, tus reglas. Comenzamos con una base perfecta y tú eliges el resto.",
+    "ingredients": "Incluye base, salsa, y extras a elección",
     "basePrice": 6700,
-    "includes": "Burger + Pan Brioche + Base de Salsa",
     "image": "/images/products/BF.webp"
   },
   "burgers": [
