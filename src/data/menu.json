@@ -30,39 +30,55 @@
     { "id": "B20", "name": "Los tres chanchitos", "ingredients": "Burger + queso gouda + tocino + pulled pork + longaniza + salsa BBQ", "price": 12500 },
     { "id": "B21", "name": "La limeña", "ingredients": "Burger + queso crema + ceviche de camarón + mix de ajíes + tortilla de maíz", "price": 10500 },
     { "id": "B22", "name": "Club Veggie", "ingredients": "Burger + queso cheddar + lechuga + tomate + pepinillos + salsa club", "price": 9800 },
-    { "id": "B23", "name": "Burger del mes", "ingredients": "Especial de la temporada - Consulte el sabor de hoy", "price": 0 },
+    { "id": "B23", "name": "Burger del mes", "ingredients": "Especial de la temporada - Consulte disponibilidad", "price": 0 },
     { "id": "B24", "name": "Veggie Thai", "ingredients": "Burger garbanzos + lechuga + champignones + cebolla morada + mix de ajíes y cebollín", "price": 10500 }
   ],
   "snacks": [
-    { "id": "S1", "name": "Papas Fritas Rústicas", "ingredients": "Crocantes con sal de mar", "price": 3800 },
-    { "id": "S2", "name": "Aros de Cebolla", "ingredients": "Apanado Panko Premium", "price": 3500 },
-    { "id": "S3", "name": "Tequeños Master", "ingredients": "Masa artesanal y queso fundido", "price": 4200 }
+    { "id": "S1", "name": "Aros de Cebolla Clásicos", "ingredients": "Crocantes al estilo Ruta 9", "price": 3800 },
+    { "id": "S2", "name": "Aros de Cebolla Mix", "ingredients": "Con selección de salsas especiales", "price": 4500 },
+    { "id": "S3", "name": "Snack del Viajero S3", "ingredients": "Acompañamiento premium de ruta", "price": 3500 },
+    { "id": "S4", "name": "Snack del Viajero S4", "ingredients": "Acompañamiento premium de ruta", "price": 3500 },
+    { "id": "S5", "name": "Snack del Viajero S5", "ingredients": "Acompañamiento premium de ruta", "price": 3500 },
+    { "id": "S6", "name": "Snack del Viajero S6", "ingredients": "Acompañamiento premium de ruta", "price": 3500 },
+    { "id": "S7", "name": "Snack del Viajero S7", "ingredients": "Acompañamiento premium de ruta", "price": 3500 },
+    { "id": "S8", "name": "Snack del Viajero S8", "ingredients": "Acompañamiento premium de ruta", "price": 3500 },
+    { "id": "S9", "name": "Snack del Viajero S9", "ingredients": "Acompañamiento premium de ruta", "price": 3500 },
+    { "id": "S10", "name": "Snack del Viajero S10", "ingredients": "Acompañamiento premium de ruta", "price": 3500 },
+    { "id": "S11", "name": "Snack del Viajero S11", "ingredients": "Acompañamiento premium de ruta", "price": 3500 },
+    { "id": "S12", "name": "Snack del Viajero S12", "ingredients": "Acompañamiento premium de ruta", "price": 3500 },
+    { "id": "S13", "name": "Snack del Viajero S13", "ingredients": "Acompañamiento premium de ruta", "price": 3500 },
+    { "id": "S14", "name": "Snack del Viajero S14", "ingredients": "Acompañamiento premium de ruta", "price": 3500 },
+    { "id": "S15", "name": "Snack del Viajero S15", "ingredients": "Acompañamiento premium de ruta", "price": 3500 },
+    { "id": "S16", "name": "Snack del Viajero S16", "ingredients": "Acompañamiento premium de ruta", "price": 3500 },
+    { "id": "S17", "name": "Snack del Viajero S17", "ingredients": "Acompañamiento premium de ruta", "price": 3500 },
+    { "id": "S19", "name": "Snack del Viajero S19", "ingredients": "Acompañamiento premium de ruta", "price": 3500 },
+    { "id": "S20", "name": "Snack del Viajero S20", "ingredients": "Acompañamiento premium de ruta", "price": 3500 }
   ],
   "sandwiches": [
-    { "id": "W1", "name": "Club Sandwich de Ruta", "ingredients": "Pollo grillado + tocino ahumado + palta + huevo", "price": 9200 }
+    { "id": "W1", "name": "Club Sandwich de Ruta", "ingredients": "Pollo grillado + tocino + huevo + palta", "price": 9200 }
   ],
   "postres": [
-    { "id": "P1", "name": "Volcán de Chocolate", "ingredients": "Núcleo líquido + helado de vainilla", "price": 4500 }
+    { "id": "P1", "name": "Volcán de Chocolate", "ingredients": "Chocolate amargo + helado frío", "price": 4500 }
   ],
   "drinks": {
     "La Hidratación": [
-      { "name": "Bebidas Línea Coca Cola", "price": 1800 },
-      { "name": "Agua Mineral Pureza Sur", "price": 1500 }
+      { "name": "Línea Coca Cola", "price": 1800 },
+      { "name": "Agua Mineral", "price": 1500 }
     ],
     "Cervezas del Sur": [
-      { "name": "Schop Austral Lager 500cc", "price": 4500 },
-      { "name": "Austral Calafate (Botella)", "price": 3800 },
-      { "name": "Pinta Artesanal de la Casa", "price": 4800 }
+      { "name": "Austral Lager (Chopp)", "price": 4500 },
+      { "name": "Pinta Artesanal Roja", "price": 4800 },
+      { "name": "Ipa Patagonia", "price": 4800 }
     ],
-    "Mixología de Ruta": [
-      { "name": "Pisco Sour Tradicional Patagónico", "price": 5800 },
-      { "name": "Michelada Ruta 9 XL", "price": 4600 },
-      { "name": "Copa de Vino (Selección Tintos)", "price": 4200 }
+    "Mixología & Ruta": [
+      { "name": "Pisco Sour", "price": 5800 },
+      { "name": "Michelada", "price": 4500 },
+      { "name": "Copa de Vino (Selección)", "price": 4200 }
     ],
     "Cafetería & Té": [
-      { "name": "Espresso Doble", "price": 2200 },
-      { "name": "Capuccino con Crema", "price": 3200 },
-      { "name": "Té de Autor (Diferentes variedades)", "price": 1800 }
+      { "name": "Café Americano", "price": 2000 },
+      { "name": "Capuccino", "price": 3200 },
+      { "name": "Té de Autor", "price": 1800 }
     ]
   },
   "extras": {
@@ -71,28 +87,23 @@
       { "name": "Salsa Cheddar", "price": 1500 },
       { "name": "Gouda", "price": 1500 },
       { "name": "Parmesano", "price": 1800 },
-      { "name": "Queso crema", "price": 1800 },
       { "name": "Azul", "price": 2200 },
-      { "name": "Provoleta", "price": 2200 },
-      { "name": "Doble Cheddar", "price": 2500 }
+      { "name": "Provoleta", "price": 2200 }
     ],
     "Verduras": [
-      { "name": "Pepinillos", "price": 800 },
       { "name": "Tomate", "price": 800 },
       { "name": "Lechuga", "price": 800 },
-      { "name": "Palta trozada", "price": 2500 },
-      { "name": "Cebolla morada", "price": 1500 },
-      { "name": "Cebolla Caramelizada", "price": 1500 }
+      { "name": "Pepinillos", "price": 800 },
+      { "name": "Palta trozada", "price": 2500 }
     ],
     "Carnes": [
       { "name": "Tocino", "price": 1900 },
       { "name": "Longaniza ahumada", "price": 2200 },
-      { "name": "Pulled Pork", "price": 2500 },
       { "name": "Burger extra", "price": 3200 }
     ],
     "Salsas": [
-      { "name": "Mayonesa / Ketchup / Mostaza", "price": 800 },
-      { "name": "Salsa BBQ / Club / Miel", "price": 1000 }
+      { "name": "Mayonesa / Ketchup", "price": 800 },
+      { "name": "Salsa BBQ", "price": 1000 }
     ]
   }
 }
