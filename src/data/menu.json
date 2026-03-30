@@ -59,7 +59,10 @@
     { "id": "W1", "name": "Club Sandwich de Ruta", "ingredients": "Pollo grillado + tocino + huevo + palta", "price": 9200 }
   ],
   "postres": [
-    { "id": "P1", "name": "Volcán de Chocolate", "ingredients": "Chocolate amargo + helado frío", "price": 4500 }
+    { "id": "P1", "name": "Affogato", "ingredients": "Bola de helado de vainilla ahogada en espresso", "price": 4500 },
+    { "id": "P2", "name": "Copa de helado", "ingredients": "Clásica copa de helado", "price": 4500 },
+    { "id": "P3", "name": "Donuts con helado", "ingredients": "Acompañado con salsa de chocolate", "price": 4500 },
+    { "id": "P4", "name": "Brownie con helado", "ingredients": "Acompañado con salsa de chocolate", "price": 4500 }
   ],
   "drinks": {
     "Bebidas": [
