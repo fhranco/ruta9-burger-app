@@ -6,11 +6,11 @@ import { useTray } from "@/store/useTray";
 import { motion, AnimatePresence } from "framer-motion";
 
 const SECTIONS = [
-  { id: "factory", icon: <Hammer className="w-5 h-5" />, label: "Factory" },
-  { id: "burgers", icon: <Beef className="w-5 h-5" />, label: "Menu" },
-  { id: "snacks", icon: <List className="w-5 h-5" />, label: "Snacks" },
-  { id: "postres", icon: <Cookie className="w-5 h-5" />, label: "Postres" },
-  { id: "drinks", icon: <Coffee className="w-5 h-5" />, label: "Drinks" },
+  { id: "factory", icon: <span className="text-2xl filter drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] block">🛠️</span>, label: "Factory" },
+  { id: "burgers", icon: <span className="text-2xl filter drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] block">🍔</span>, label: "Burgers" },
+  { id: "snacks", icon: <span className="text-2xl filter drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] block">🍟</span>, label: "Snacks" },
+  { id: "postres", icon: <span className="text-2xl filter drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] block">🍦</span>, label: "Postres" },
+  { id: "drinks", icon: <span className="text-2xl filter drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] block">🍹</span>, label: "Drinks" },
 ] as const;
 
 export const Navigation = () => {
