@@ -6,7 +6,7 @@ import { BurgerCard } from "./BurgerCard";
 import menuData from "@/data/menu.json";
 import { useTray } from "@/store/useTray";
 import { motion, AnimatePresence } from "framer-motion";
-import { Zap, ChevronDown } from "lucide-react";
+import { Zap, ChevronDown, Check } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -126,25 +126,39 @@ export const MenuExplorer = () => {
 };
 
 const DrinkCard = ({ drink }: { drink: any }) => {
+   const productId = 'DR-' + drink.name;
+   const items = useTray((state) => state.items);
    const addItem = useTray((state) => state.addItem);
+   const removeProduct = useTray((state) => state.removeProduct);
+
+   const isAdded = items.some(item => item.product.id === productId);
+
+   const handleAction = () => {
+      if (isAdded) {
+         removeProduct(productId);
+      } else {
+         addItem({ ...drink, id: productId, type: 'drink' });
+      }
+   };
+
    return (
      <button 
-        onClick={() => addItem({ ...drink, id: 'DR-'+drink.name, type: 'drink' })}
-        className="bg-white/5 backdrop-blur-3xl border border-white/10 rounded-3xl p-6 flex items-center justify-between hover:border-primary transition-all active:scale-95 text-left group shadow-lg"
+        onClick={handleAction}
+        className={`bg-white/5 backdrop-blur-3xl border ${isAdded ? 'border-green-500 shadow-[0_10px_30px_rgba(34,197,94,0.3)]' : 'border-white/10 hover:border-primary shadow-lg'} rounded-3xl p-6 flex items-center justify-between transition-all active:scale-95 text-left group`}
      >
         <div className="max-w-[70%]">
-           <h4 className="text-lg font-black text-white uppercase tracking-tight leading-none mb-1">{drink.name}</h4>
-           <div className="flex items-center gap-2 opacity-30">
-              <Zap className="w-3 h-3 text-primary" />
-              <span className="text-[8px] font-black uppercase tracking-widest">Premium Selection</span>
+           <h4 className={`text-lg font-black uppercase tracking-tight leading-none mb-1 transition-colors ${isAdded ? 'text-green-400 drop-shadow-md' : 'text-white'}`}>{drink.name}</h4>
+           <div className={`flex items-center gap-2 ${isAdded ? 'text-green-500' : 'text-primary opacity-30'} transition-colors`}>
+              <Zap className="w-3 h-3" />
+              <span className="text-[8px] font-black uppercase tracking-widest">{isAdded ? 'EN RUTA' : 'Premium Selection'}</span>
            </div>
         </div>
-        <div className="text-right">
-           <span className="text-2xl font-black italic text-primary tracking-tighter block mb-1">
+        <div className="text-right flex flex-col items-end">
+           <span className={`text-2xl font-black italic tracking-tighter block mb-1 ${isAdded ? 'text-green-400 drop-shadow-[0_0_8px_rgba(74,222,128,0.8)]' : 'text-primary'}`}>
               {drink.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}
            </span>
-           <div className="bg-primary/10 text-primary text-[8px] font-black px-3 py-1 rounded-full border border-primary/20">
-              + AÑADIR
+           <div className={`${isAdded ? 'bg-green-500 text-white border-green-400 shadow-[0_5px_15px_rgba(34,197,94,0.4)]' : 'bg-primary/10 text-primary border-primary/20'} text-[8px] font-black px-3 py-1 rounded-full border flex items-center gap-1 transition-all`}>
+              {isAdded ? <>AGREGADO <Check className="w-2.5 h-2.5" /></> : '+ AÑADIR'}
            </div>
         </div>
      </button>
