@@ -11,6 +11,7 @@ export const BurgerCard = ({ burger }: { burger: any }) => {
   const addItem = useTray((state) => state.addItem);
   const [showUpsell, setShowUpsell] = useState(false);
   const [showBalloon, setShowBalloon] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
 
   const handleAddAction = () => {
     addItem(burger);
@@ -25,23 +26,24 @@ export const BurgerCard = ({ burger }: { burger: any }) => {
         ref={cardRef}
         className="relative w-full h-[100dvh] flex flex-col items-center justify-between pt-24 pb-36 px-8 overflow-hidden snap-start"
       >
-        {/* Glow Background */}
-        <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[160px] pointer-events-none opacity-25 -z-10 transition-colors duration-1000 ${isInView ? "bg-primary" : "bg-white/5"}`} />
+        {/* Clean Background - Glow Removed */}
 
         {/* Header Info - REWORKED FOR MAX ID VISIBILITY */}
         <div className="w-full flex flex-col items-center gap-1 z-10 px-4">
           
-          {/* THE TACTICAL STAMP (v19.0) */}
-          <motion.div 
-             initial={{ scale: 0.8, opacity: 0 }}
-             animate={isInView ? { scale: 1, opacity: 1 } : {}}
-             transition={{ type: "spring", stiffness: 200 }}
-             className="bg-primary px-6 py-2 rounded-2xl shadow-[0_20px_40px_rgba(209,35,43,0.6)] border-2 border-white/20 transform -rotate-3 mb-4"
-          >
-             <span className="text-4xl font-black italic text-white tracking-tighter leading-none">
-                {burger.id}
-             </span>
-          </motion.div>
+          {/* THE TACTICAL STAMP (v19.0) - Hidden for Factory to lower header */}
+          {burger.id !== "BF" && (
+            <motion.div 
+               initial={{ scale: 0.8, opacity: 0 }}
+               animate={isInView ? { scale: 1, opacity: 1 } : {}}
+               transition={{ type: "spring", stiffness: 200 }}
+               className="bg-primary px-6 py-2 rounded-2xl shadow-[0_20px_40px_rgba(209,35,43,0.6)] border-2 border-white/20 transform -rotate-3 mb-4"
+            >
+               <span className="text-4xl font-black italic text-white tracking-tighter leading-none">
+                  {burger.id}
+               </span>
+            </motion.div>
+          )}
 
           <div className="relative text-center flex flex-col items-center justify-center w-full px-2 min-h-[60px]">
             <motion.h2 
@@ -78,9 +80,42 @@ export const BurgerCard = ({ burger }: { burger: any }) => {
           
           {/* Ingredients / Instructions */}
           <div className="text-center px-6">
-              <p className="text-base sm:text-lg text-snow leading-snug font-bold tracking-wide break-words drop-shadow-md pb-2">
-                {burger.ingredients}
-              </p>
+              {burger.id === "BF" ? (
+                 <>
+                   <button 
+                     onClick={() => setShowInfo(true)}
+                     className="text-primary text-sm font-black border border-primary/40 bg-primary/10 px-6 py-2 rounded-full uppercase tracking-widest animate-pulse"
+                   >
+                      Ver Tip de Armado 💡
+                   </button>
+                   
+                   <AnimatePresence>
+                      {showInfo && (
+                        <motion.div 
+                          initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                          animate={{ opacity: 1, scale: 1, y: 0 }}
+                          exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                          className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-[90%] sm:w-[350px] bg-asphalt border border-white/20 p-6 rounded-3xl shadow-[0_30px_60px_rgba(0,0,0,0.8)] z-[200]"
+                        >
+                           <h4 className="text-primary font-black uppercase tracking-widest text-xs mb-3">🛠️ INSTRUCCIONES RUTA 9</h4>
+                           <p className="text-white text-sm font-medium leading-relaxed drop-shadow-md">
+                              {burger.ingredients}
+                           </p>
+                           <button 
+                             onClick={() => setShowInfo(false)}
+                             className="mt-6 w-full bg-white/10 hover:bg-white/20 text-white text-xs font-bold py-3 rounded-xl uppercase transition-colors"
+                           >
+                              ENTENDIDO
+                           </button>
+                        </motion.div>
+                      )}
+                   </AnimatePresence>
+                 </>
+              ) : (
+                 <p className="text-base sm:text-lg text-snow leading-snug font-bold tracking-wide break-words drop-shadow-md pb-2">
+                   {burger.ingredients}
+                 </p>
+              )}
           </div>
 
           {/* Action Pill - PURE PRICE */}
