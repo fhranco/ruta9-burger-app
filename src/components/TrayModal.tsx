@@ -59,10 +59,12 @@ export const TrayModal = () => {
                 <div className="flex items-center gap-3">
                     <img src="/images/ui/logo.png" className="w-8 h-8 grayscale brightness-200" alt="Logo" />
                     <div>
-                        <h2 className="text-lg font-black italic text-white tracking-tighter uppercase leading-none">PEDIDO ACTUAL</h2>
+                        <h2 className="text-xl font-black italic text-white tracking-tighter uppercase leading-none">
+                            RUTA <span className="text-primary animate-pulse">9</span>
+                        </h2>
                         <div className="flex items-center gap-1 text-primary mt-1">
                             <Zap className="w-3 h-3 animate-pulse" />
-                            <span className="text-[9px] font-bold uppercase tracking-widest text-white/40">Resumen para Garzón</span>
+                            <span className="text-[9px] font-bold uppercase tracking-widest text-white/40">PEDIDO ACTUAL</span>
                         </div>
                     </div>
                 </div>
@@ -77,7 +79,7 @@ export const TrayModal = () => {
             <div className="flex-grow overflow-y-auto scrollbar-hide">
                 
                 {/* 2. Personalized Identity Block + NOUN BALLOON */}
-                <div className="p-4 pb-2 relative">
+                <div className="p-4 pb-2 mt-4 relative">
                    <div className="bg-white/5 rounded-[2rem] p-5 border border-white/10 shadow-inner flex flex-col gap-2 relative">
                       
                       {/* THE NAME BALLOON / CLOUD */}
@@ -85,7 +87,7 @@ export const TrayModal = () => {
                         {!userName && (
                            <motion.div
                              initial={{ opacity: 0, scale: 0.8, y: 10 }}
-                             animate={{ opacity: 1, scale: 1, y: -60 }}
+                             animate={{ opacity: 1, scale: 1, y: -45 }}
                              exit={{ opacity: 0, scale: 0.8 }}
                              className="absolute left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] font-black py-3 px-6 rounded-2xl whitespace-nowrap shadow-[0_15px_30px_rgba(209,35,43,0.6)] z-[160] border border-white/20"
                            >
