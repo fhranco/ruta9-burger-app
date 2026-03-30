@@ -8,16 +8,27 @@ import { UpsellDrawer } from "./UpsellDrawer";
 export const BurgerCard = ({ burger }: { burger: any }) => {
   const cardRef = useRef(null);
   const isInView = useInView(cardRef, { once: false, amount: 0.2 });
+  const items = useTray((state) => state.items);
   const addItem = useTray((state) => state.addItem);
+  const removeProduct = useTray((state) => state.removeProduct);
   const [showUpsell, setShowUpsell] = useState(false);
   const [showBalloon, setShowBalloon] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
 
+  const isAdded = items.some(item => item.product.id === burger.id);
+
   const handleAddAction = () => {
-    addItem(burger);
-    setShowUpsell(true);
-    setShowBalloon(true);
-    setTimeout(() => setShowBalloon(false), 3000);
+    if (isAdded) {
+      removeProduct(burger.id);
+    } else {
+      addItem(burger);
+      // Solo mostrar upsell para burgers o BF, no para bebidas/postres
+      if (burger.id.startsWith("B") || burger.id === "BF") {
+        setShowUpsell(true);
+      }
+      setShowBalloon(true);
+      setTimeout(() => setShowBalloon(false), 3000);
+    }
   };
 
   return (
@@ -141,12 +152,16 @@ export const BurgerCard = ({ burger }: { burger: any }) => {
               </span>
             </div>
             
-            <div className="flex gap-2">
+             <div className="flex gap-2">
                <button 
                   onClick={handleAddAction}
-                  className="bg-primary hover:bg-[#A32025] text-white font-black h-12 sm:h-16 px-4 sm:px-10 rounded-full flex items-center gap-2 transition-all shadow-[0_15px_35px_rgba(209,35,43,0.4)] hover:scale-105 active:scale-95 min-w-[120px] sm:min-w-[160px] justify-center text-[10px] sm:text-sm tracking-widest whitespace-nowrap"
+                  className={`${isAdded ? 'bg-green-600 hover:bg-green-500 shadow-[0_15px_35px_rgba(22,163,74,0.4)]' : 'bg-primary hover:bg-[#A32025] shadow-[0_15px_35px_rgba(209,35,43,0.4)]'} text-white font-black h-12 sm:h-16 px-4 sm:px-10 rounded-full flex items-center gap-2 transition-all hover:scale-105 active:scale-95 min-w-[120px] sm:min-w-[160px] justify-center text-[10px] sm:text-sm tracking-widest whitespace-nowrap`}
                >
-                  LO QUIERO <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5 animate-bounce" />
+                  {isAdded ? (
+                    <>AGREGADO <Check className="w-4 h-4 sm:w-5 sm:h-5" /></>
+                  ) : (
+                    <>LO QUIERO <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5 animate-bounce" /></>
+                  )}
                </button>
             </div>
           </div>
