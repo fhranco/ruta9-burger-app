@@ -45,11 +45,11 @@ export const Navigation = () => {
       </header>
 
       {/* Bottom Floating Nav - THE GIANT COMPASS (v23.0) */}
-      <nav className="fixed bottom-0 left-0 right-0 z-[100] p-4 pb-6 pointer-events-none flex justify-center">
-        <div className="bg-black/80 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-2 flex items-center gap-1 shadow-[0_25px_60px_rgba(0,0,0,1)] pointer-events-auto relative overflow-visible">
+      <nav className="fixed bottom-0 left-0 right-0 z-[100] px-4 pb-4 sm:p-4 sm:pb-6 pointer-events-none flex justify-center">
+        <div className="w-full max-w-[500px] bg-black/80 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-2 flex items-center justify-between shadow-[0_25px_60px_rgba(0,0,0,1)] pointer-events-auto relative overflow-visible">
            
            {/* Section Selector */}
-           <div className="flex items-center gap-1">
+           <div className="flex items-center justify-between flex-1 px-1 sm:px-2 gap-1 sm:gap-2">
              {SECTIONS.map((section) => {
                 const isActive = activeSection === section.id;
                 const isFactory = section.id === "factory";
@@ -58,7 +58,7 @@ export const Navigation = () => {
                    <button 
                      key={section.id}
                      onClick={() => setActiveSection(section.id as any)}
-                     className={`relative px-4 py-3 rounded-3xl flex flex-col items-center gap-1 transition-all active:scale-90 ${isActive ? 'text-white' : 'text-white/20 hover:text-white/40'}`}
+                     className={`relative px-2 sm:px-4 py-3 rounded-3xl flex flex-col items-center justify-center gap-1 transition-all active:scale-90 flex-1 ${isActive ? 'text-white' : 'text-white/20 hover:text-white/40'}`}
                    >
                       <div className={`transition-all duration-300 ${isActive ? 'scale-[1.4] drop-shadow-[0_0_20px_rgba(209,35,43,1)] saturate-200' : 'scale-110 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:scale-125'}`}>
                         {section.icon}
