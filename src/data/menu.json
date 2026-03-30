@@ -62,24 +62,47 @@
     { "id": "P1", "name": "Volcán de Chocolate", "ingredients": "Chocolate amargo + helado frío", "price": 4500 }
   ],
   "drinks": {
-    "La Hidratación": [
-      { "name": "Línea Coca Cola", "price": 1800 },
-      { "name": "Agua Mineral", "price": 1500 }
+    "Bebidas": [
+      { "name": "Agua mineral con gas/sin gas", "price": 2500 },
+      { "name": "Pepsi, 7Up, Crush, Ginger Ale, Bilz, Kem, Pap, Limón Soda", "price": 2500 },
+      { "name": "Jugos naturales de la casa", "price": 3800 }
     ],
-    "Cervezas del Sur": [
-      { "name": "Austral Lager (Chopp)", "price": 4500 },
-      { "name": "Pinta Artesanal Roja", "price": 4800 },
-      { "name": "Ipa Patagonia", "price": 4800 }
+    "Cervezas": [
+      { "name": "Austral 330cc (Lager, Calafate, Yagan, Patagonia)", "price": 4000 },
+      { "name": "Austral Torres del Paine 500cc", "price": 5000 },
+      { "name": "Patagonia Hoppy Lager 470cc", "price": 4000 },
+      { "name": "Patagonia Blond Lager 470cc", "price": 4000 },
+      { "name": "Patagonia Black Lager 470cc", "price": 4000 },
+      { "name": "Patagonia Red Lager 470cc", "price": 4000 }
     ],
-    "Mixología & Ruta": [
-      { "name": "Pisco Sour", "price": 5800 },
-      { "name": "Michelada", "price": 4500 },
-      { "name": "Copa de Vino (Selección)", "price": 4200 }
+    "Cervezas Tiradas": [
+      { "name": "Shop Austral 330cc (Lager, Calafate, Torres del Paine)", "price": 4000 },
+      { "name": "Shop Austral 500cc (Lager, Calafate, Yagan, Patagonia)", "price": 5000 }
     ],
-    "Cafetería & Té": [
-      { "name": "Café Americano", "price": 2000 },
-      { "name": "Capuccino", "price": 3200 },
-      { "name": "Té de Autor", "price": 1800 }
+    "Vinos": [
+      { "name": "Botella vino blanco 750cc", "price": 15000 },
+      { "name": "Botella vino tinto 750cc", "price": 15000 },
+      { "name": "Copa de vino 200cc", "price": 4500 }
+    ],
+    "Micheladas": [
+      { "name": "Chelada (sal y limón)", "price": 5400 },
+      { "name": "Michelada Merkén", "price": 5500 },
+      { "name": "Michelada Tabasco", "price": 5800 },
+      { "name": "Michelada Sriracha", "price": 6000 }
+    ],
+    "Sours": [
+      { "name": "Pisco sour tradicional", "price": 4500 },
+      { "name": "Pisco sour mango", "price": 4500 },
+      { "name": "Pisco sour calafate", "price": 5500 },
+      { "name": "Pisco sour ruibarbo", "price": 5500 }
+    ],
+    "Té y Café": [
+      { "name": "Espresso chico", "price": 2000 },
+      { "name": "Espresso grande", "price": 2600 },
+      { "name": "Americano", "price": 2600 },
+      { "name": "Café con leche", "price": 2800 },
+      { "name": "Cortado", "price": 2800 },
+      { "name": "Té e infusiones", "price": 2600 }
     ]
   },
   "extras": {
