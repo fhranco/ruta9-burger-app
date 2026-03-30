@@ -91,7 +91,7 @@ export const TrayModal = () => {
                              exit={{ opacity: 0, scale: 0.8 }}
                              className="absolute left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] font-black py-3 px-6 rounded-2xl whitespace-nowrap shadow-[0_15px_30px_rgba(209,35,43,0.6)] z-[160] border border-white/20"
                            >
-                               ¡PANTALLA PARA EL GARZÓN! <br />¿CÓMO TE LLAMAS? 🏮✍️
+                               ¡PANTALLA PARA EL ANFITRIÓN! <br />¿CÓMO TE LLAMAS? 🏮✍️
                                <div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-3 h-3 bg-primary rotate-45 border-r border-b border-white/20" />
                            </motion.div>
                         )}
@@ -194,12 +194,12 @@ export const TrayModal = () => {
 
                 {/* ACTION BUTTONS (SPLIT GRID) */}
                 <div className="grid grid-cols-2 gap-3 mt-1">
-                   {/* DINE-IN (GARZÓN) */}
+                   {/* DINE-IN (ANFITRIÓN) */}
                    <div className="bg-primary/20 rounded-2xl p-3 flex flex-col items-center justify-center text-center gap-2 border border-primary/30 relative overflow-hidden group">
                        <Store className="w-5 h-5 text-primary" />
                        <div className="flex flex-col">
                            <span className="text-[10px] font-black uppercase text-white tracking-widest leading-none mb-0.5">LOCAL</span>
-                           <span className="text-[7.5px] font-bold text-white/50 uppercase tracking-[0.1em]">Muestra al Garzón</span>
+                           <span className="text-[7.5px] font-bold text-white/50 uppercase tracking-[0.1em]">Muestra al Anfitrión</span>
                        </div>
                    </div>
                    
