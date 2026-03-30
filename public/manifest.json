@@ -3,7 +3,7 @@
   "short_name": "Ruta 9",
   "description": "High-end Patagonian burger experience.",
   "start_url": "/",
-  "display": "standalone",
+  "display": "fullscreen",
   "background_color": "#0D0D12",
   "theme_color": "#D1232B",
   "icons": [
