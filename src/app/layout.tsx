@@ -39,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="dark scroll-smooth">
-      <body className={`${spaceGrotesk.variable} ${instrumentSerif.variable} antialiased selection:bg-primary selection:text-white`}>
+      <body className={`overflow-x-hidden w-full max-w-[100vw] ${spaceGrotesk.variable} ${instrumentSerif.variable} antialiased selection:bg-primary selection:text-white`}>
         <div className="noise-overlay" />
         {children}
       </body>

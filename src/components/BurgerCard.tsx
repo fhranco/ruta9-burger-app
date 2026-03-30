@@ -43,11 +43,11 @@ export const BurgerCard = ({ burger }: { burger: any }) => {
              </span>
           </motion.div>
 
-          <div className="relative text-center flex flex-col items-center h-20">
+          <div className="relative text-center flex flex-col items-center justify-center w-full px-2 min-h-[60px]">
             <motion.h2 
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              className="text-4xl md:text-5xl font-black italic font-serif text-white relative z-20 tracking-tighter drop-shadow-[0_15px_40px_rgba(0,0,0,0.95)] uppercase"
+              className="text-[1.7rem] sm:text-4xl md:text-5xl font-black italic font-serif text-white relative z-20 tracking-tighter drop-shadow-[0_15px_40px_rgba(0,0,0,0.95)] uppercase text-balance leading-none"
             >
               {burger.name}
             </motion.h2>
@@ -55,19 +55,19 @@ export const BurgerCard = ({ burger }: { burger: any }) => {
         </div>
 
         {/* Central Hero Image */}
-        <div className="flex-grow flex items-center justify-center relative w-full h-full max-w-[500px] z-0 -my-10">
+        <div className="flex-grow w-full max-w-[500px] flex items-center justify-center relative z-0 my-2 min-h-[25vh] max-h-[40vh]">
           <motion.div 
             animate={isInView ? {
-              y: [0, -15, 0],
+              y: [0, -10, 0],
               rotate: [0, 2, 0, -2, 0]
             } : {}}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="relative w-full aspect-square flex items-center justify-center filter drop-shadow-[0_45px_100px_rgba(0,0,0,0.95)]"
+            className="relative w-full h-full flex items-center justify-center filter drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)]"
           >
             <img 
               src={`/images/products/${burger.id}.webp`} 
               alt={burger.name}
-              className="w-full h-full object-contain transform scale-110 pointer-events-none"
+              className="w-full h-full object-contain transform scale-[1.05] pointer-events-none"
               loading="eager"
             />
           </motion.div>
@@ -84,15 +84,15 @@ export const BurgerCard = ({ burger }: { burger: any }) => {
           </div>
 
           {/* Action Pill - PURE PRICE */}
-          <div className="flex items-center justify-between bg-black/60 backdrop-blur-3xl border border-white/20 rounded-full p-2.5 pl-10 shadow-4xl relative overflow-visible group">
+          <div className="flex items-center justify-between bg-black/60 backdrop-blur-3xl border border-white/20 rounded-full p-2 pl-4 sm:pl-8 shadow-4xl relative overflow-visible group w-full max-w-[95vw] mx-auto">
             
             <AnimatePresence>
               {showBalloon && (
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, y: -100, scale: 1 }}
+                  animate={{ opacity: 1, y: -80, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
-                  className="absolute left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] font-bold py-3 px-8 rounded-2xl whitespace-nowrap shadow-[0_20px_40px_rgba(209,35,43,0.6)] z-[100] border border-white/30"
+                  className="absolute left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] font-bold py-2 px-4 sm:px-8 rounded-2xl whitespace-nowrap shadow-[0_20px_40px_rgba(209,35,43,0.6)] z-[100] border border-white/30"
                 >
                     ¡AÑADIDA! ¿Vemos un EXTRA? 👇
                     <div className="absolute bottom-[-6px] left-1/2 -translate-x-1/2 w-3 h-3 bg-primary rotate-45 border-r border-b border-white/20" />
@@ -101,7 +101,7 @@ export const BurgerCard = ({ burger }: { burger: any }) => {
             </AnimatePresence>
 
             <div className="flex flex-col">
-              <span className="text-4xl font-black text-white tracking-tighter drop-shadow-lg">
+              <span className="text-2xl sm:text-4xl font-black text-white tracking-tighter drop-shadow-lg leading-none">
                 {burger.price === 0 ? "Consulte" : burger.price.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}
               </span>
             </div>
@@ -109,9 +109,9 @@ export const BurgerCard = ({ burger }: { burger: any }) => {
             <div className="flex gap-2">
                <button 
                   onClick={handleAddAction}
-                  className="bg-primary hover:bg-[#A32025] text-white font-black h-16 px-10 rounded-full flex items-center gap-3 transition-all shadow-[0_15px_35px_rgba(209,35,43,0.4)] hover:scale-105 active:scale-95 min-w-[160px] justify-center text-sm tracking-widest"
+                  className="bg-primary hover:bg-[#A32025] text-white font-black h-12 sm:h-16 px-4 sm:px-10 rounded-full flex items-center gap-2 transition-all shadow-[0_15px_35px_rgba(209,35,43,0.4)] hover:scale-105 active:scale-95 min-w-[120px] sm:min-w-[160px] justify-center text-[10px] sm:text-sm tracking-widest whitespace-nowrap"
                >
-                  LO QUIERO <ChevronUp className="w-5 h-5 animate-bounce" />
+                  LO QUIERO <ChevronUp className="w-4 h-4 sm:w-5 sm:h-5 animate-bounce" />
                </button>
             </div>
           </div>

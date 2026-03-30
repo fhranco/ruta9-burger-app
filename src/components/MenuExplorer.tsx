@@ -46,8 +46,8 @@ export const MenuExplorer = () => {
              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
              className="min-h-[100dvh] flex flex-col items-center justify-center p-8 text-center relative snap-start"
            >
-              <div className="absolute top-0 left-0 w-full h-full z-0 opacity-20 overflow-hidden pointer-events-none">
-                 <h1 className="text-[250px] font-black text-white/5 whitespace-nowrap -rotate-12 translate-x-[-10%] translate-y-[-10%]">
+              <div className="absolute top-0 left-0 w-full h-full z-0 opacity-20 overflow-hidden pointer-events-none max-w-[100vw]">
+                 <h1 className="text-[120px] md:text-[250px] font-black text-white/5 whitespace-nowrap -rotate-12 translate-x-[-10%] translate-y-[-10%]">
                     FACTORY
                  </h1>
               </div>
@@ -86,8 +86,8 @@ export const MenuExplorer = () => {
            >
               {/* HEADING GIGANTE DE FONDO PARA CATEGORÍAS */}
               {activeSection !== "burgers" && (
-                <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-[-1] opacity-5 overflow-hidden">
-                   <h1 className="text-[300px] font-black text-white uppercase whitespace-nowrap">
+                <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-[-1] max-w-[100vw] overflow-hidden opacity-5">
+                   <h1 className="text-[120px] md:text-[250px] font-black text-white uppercase whitespace-nowrap">
                       {activeSection}
                    </h1>
                 </div>
