@@ -2,7 +2,7 @@
 import React from "react";
 import { useTray } from "@/store/useTray";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Trash2, MapPin, CheckCircle2, UserCircle, Zap, Plus, ChevronRight, MessageSquareDashed } from "lucide-react";
+import { X, Trash2, MapPin, CheckCircle2, UserCircle, Zap, Plus, ChevronRight, MessageSquareDashed, AtSign, Store, Send } from "lucide-react";
 
 export const TrayModal = () => {
   const { items, isOpen, toggleTray, removeItem, clearTray, userName, setUserName } = useTray();
@@ -14,6 +14,29 @@ export const TrayModal = () => {
   };
 
   const totalPrice = items.reduce((acc, item) => acc + calculateItemTotal(item), 0);
+
+  const handleWhatsAppDelivery = () => {
+    let text = `*📍 NUEVO PEDIDO DELIVERY RUTA 9*\n`;
+    if (userName) text += `*🗣️ Cliente:* ${userName}\n`;
+    text += `--------------------------\n`;
+    
+    items.forEach(item => {
+      text += `*▶ ${item.quantity}x ${item.product.name}*\n`;
+      if (item.extras.length > 0) {
+        item.extras.forEach((ex: any) => {
+          text += `   + ${ex.name}\n`;
+        });
+      }
+    });
+
+    text += `--------------------------\n`;
+    text += `*💰 TOTAL: ${totalPrice.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' })}*\n\n`;
+    text += `_Pedido generado desde la SuperApp_ 📲🍔\n`;
+
+    const phone = "56957636076";
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+  };
 
   return (
     <AnimatePresence>
@@ -150,7 +173,7 @@ export const TrayModal = () => {
                 </div>
             </div>
 
-            {/* 4. Grand Total Summary (MAX VISIBILITY) */}
+            {/* 4. Grand Total Summary (MAX VISIBILITY) & ACTIONS */}
             <div className="p-6 pb-8 bg-black/90 border-t border-white/10 backdrop-blur-3xl flex flex-col gap-4 shadow-[0_-25px_60px_rgba(0,0,0,0.8)]">
                 <div className="flex items-end justify-between">
                     <div>
@@ -161,27 +184,43 @@ export const TrayModal = () => {
                     </div>
                 </div>
 
-                <div className="bg-primary rounded-3xl p-4 flex flex-col gap-3 shadow-[0_15px_30px_rgba(209,35,43,0.5)] relative border border-white/30">
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white border border-white/20">
-                                <CheckCircle2 className="w-6 h-6" />
-                            </div>
-                            <div>
-                                <h4 className="text-sm font-black text-white italic leading-tight uppercase tracking-tight">PEDIDO LISTO {userName ? `PARA ${userName.toUpperCase()}` : ''}</h4>
-                                <p className="text-[9px] font-bold text-white/80 uppercase tracking-[0.1em]">Muestra esta pantalla al garzón</p>
-                            </div>
-                        </div>
-                        <ChevronRight className="w-6 h-6 text-white/30" />
-                    </div>
+                {/* ACTION BUTTONS (SPLIT GRID) */}
+                <div className="grid grid-cols-2 gap-3 mt-1">
+                   {/* DINE-IN (GARZÓN) */}
+                   <div className="bg-primary/20 rounded-2xl p-3 flex flex-col items-center justify-center text-center gap-2 border border-primary/30 relative overflow-hidden group">
+                       <Store className="w-5 h-5 text-primary" />
+                       <div className="flex flex-col">
+                           <span className="text-[10px] font-black uppercase text-white tracking-widest leading-none mb-0.5">LOCAL</span>
+                           <span className="text-[7.5px] font-bold text-white/50 uppercase tracking-[0.1em]">Muestra al Garzón</span>
+                       </div>
+                   </div>
+                   
+                   {/* DELIVERY (WHATSAPP) */}
+                   <button 
+                     onClick={handleWhatsAppDelivery}
+                     className="bg-[#25D366] rounded-2xl p-3 flex flex-col items-center justify-center text-center gap-2 border border-[#25D366]/50 shadow-[0_10px_20px_rgba(37,211,102,0.2)] hover:scale-105 active:scale-95 transition-all group overflow-hidden relative"
+                   >
+                       <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+                       <Send className="w-5 h-5 text-white relative z-10 -rotate-12 group-hover:rotate-0 transition-transform" />
+                       <div className="flex flex-col relative z-10">
+                           <span className="text-[10px] font-black uppercase text-white tracking-widest leading-none mb-0.5">DELIVERY</span>
+                           <span className="text-[7.5px] font-bold text-white/90 uppercase tracking-[0.1em]">Enviar por WhatsApp</span>
+                       </div>
+                   </button>
                 </div>
 
-                <button 
-                    onClick={clearTray}
-                    className="text-[9px] font-bold text-white/20 uppercase tracking-[0.3em] hover:text-red-500 transition-colors flex items-center justify-center pt-2"
-                >
-                    — REINICIAR MI RUTA —
-                </button>
+                <div className="flex items-center justify-between pt-2">
+                   <button 
+                       onClick={clearTray}
+                       className="text-[9px] font-bold text-white/20 uppercase tracking-[0.3em] hover:text-red-500 transition-colors flex items-center gap-2"
+                   >
+                       <Trash2 className="w-3 h-3" /> BORRAR RUTA
+                   </button>
+
+                   <a href="https://www.instagram.com/ruta9.burgers" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-[9px] font-bold text-white/30 uppercase tracking-[0.2em] hover:text-[#E1306C] transition-colors">
+                       <AtSign className="w-4 h-4" /> @RUTA9.BURGERS
+                   </a>
+                </div>
             </div>
 
           </motion.div>
